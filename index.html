@@ -9,37 +9,36 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
         .container {
-            max-width: 850px;
+            max-width: 800px;
             background: white;
             padding: 20px;
-            margin: auto;
+            margin: 20px auto;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #003366;
         }
         .header {
+            text-align: center;
             background: #003366;
             color: white;
             padding: 15px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            text-align: center;
             border-radius: 5px;
         }
-        .form-section {
-            margin-top: 15px;
-            padding: 10px;
-            border: 2px solid #003366;
-            border-radius: 5px;
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
         }
-        .form-section h3 {
-            margin: 0;
-            font-size: 16px;
-            color: #003366;
-            text-align: center;
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         .table {
             width: 100%;
@@ -48,31 +47,23 @@
         }
         .table th, .table td {
             border: 1px solid #003366;
-            padding: 5px;
-            text-align: center;
-            font-size: 14px;
-        }
-        .checkbox-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .checkbox-table th, .checkbox-table td {
-            border: 1px solid #003366;
-            padding: 5px;
+            padding: 8px;
             text-align: center;
         }
-        .firma-container {
-            display: flex;
-            justify-content: space-between;
+        .section {
             margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #003366;
+            border-radius: 5px;
         }
-        .firma {
-            width: 45%;
-            text-align: center;
-            border-top: 2px solid #003366;
-            padding-top: 10px;
-            font-weight: bold;
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
         }
         .btn-submit {
             background: #003366;
@@ -88,6 +79,17 @@
         .btn-submit:hover {
             background: #0055a5;
         }
+        .firma-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .firma {
+            width: 45%;
+            text-align: center;
+            border-top: 2px solid #003366;
+            padding-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -95,9 +97,54 @@
     <div class="container">
         <div class="header">REPORTE DE SERVICIO</div>
 
-        <div class="form-section">
-            <h3><input type="checkbox"> I - INSECTOS RASTREROS / VOLADORES</h3>
-            <table class="checkbox-table">
+        <label>Nombre del Cliente:</label>
+        <input type="text" name="nombre_cliente">
+
+        <label>Fecha de Servicio:</label>
+        <input type="date" name="fecha_servicio">
+
+        <div class="section">
+            <h3>Hora de Servicio</h3>
+            <label>Día:</label>
+            <input type="text" name="dia">
+            
+            <label>Fecha:</label>
+            <input type="date" name="fecha">
+
+            <label>Hora:</label>
+            <input type="time" name="hora">
+
+            <label>Actividad:</label>
+            <input type="text" name="actividad">
+
+            <h4>Cantidad de Dispositivo y Consumo</h4>
+            <table class="table">
+                <tr>
+                    <th>Ext.</th>
+                    <th>Int.</th>
+                    <th>UV</th>
+                    <th>Disp. Dañado</th>
+                    <th>Plaga Señalada</th>
+                    <th>% Pesticida Usado</th>
+                    <th>Método Aplicación</th>
+                    <th>Lugar</th>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3><input type="checkbox"> I - Insectos Rastreros / Voladores</h3>
+            <table class="table">
                 <tr>
                     <th>Servicio</th>
                     <th>Seleccionar</th>
@@ -139,35 +186,26 @@
             <textarea></textarea>
         </div>
 
-        <div class="form-section">
-            <h3><input type="checkbox"> II - ROEDORES</h3>
-            <table class="checkbox-table">
-                <tr>
-                    <th>Servicio</th>
-                    <th>Seleccionar</th>
-                </tr>
-                <tr>
-                    <td>Inspección y limpieza de trampas</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                    <td>Hallazgo de actividad de roedor</td>
-                    <td>
-                        <input type="radio" name="actividad_roedor" value="si"> SI
-                        <input type="radio" name="actividad_roedor" value="no"> NO
-                    </td>
-                </tr>
-                <tr>
-                    <td>Colocación de cebo preventivo</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-            </table>
+        <div class="section">
+            <h3><input type="checkbox"> II - Roedores</h3>
+            <div class="checkbox-group"><input type="checkbox"> <label>Inspección y limpieza de trampas</label></div>
+
+            <label>Hallazgo de actividad de roedor:</label>
+            <div class="checkbox-group">
+                <input type="radio" name="actividad_roedor" value="si"> <label>SI</label>
+                <input type="radio" name="actividad_roedor" value="no"> <label>NO</label>
+            </div>
+
+            <label>Trampas:</label>
+            <input type="text">
+
+            <div class="checkbox-group"><input type="checkbox"> <label>Colocación de cebo preventivo</label></div>
             <label>Otros procedimientos:</label>
             <textarea></textarea>
         </div>
 
-        <div class="form-section">
-            <h3><input type="checkbox"> III - RECOMENDACIONES</h3>
+        <div class="section">
+            <h3><input type="checkbox"> III - Recomendaciones</h3>
             <textarea></textarea>
         </div>
 
