@@ -41,24 +41,6 @@
             color: #003366;
             text-align: center;
         }
-        .form-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        .form-group label {
-            font-weight: bold;
-            width: 30%;
-        }
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-        }
-        .checkbox-group input {
-            width: auto;
-            margin-right: 10px;
-        }
         .table {
             width: 100%;
             border-collapse: collapse;
@@ -69,6 +51,16 @@
             padding: 5px;
             text-align: center;
             font-size: 14px;
+        }
+        .checkbox-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .checkbox-table th, .checkbox-table td {
+            border: 1px solid #003366;
+            padding: 5px;
+            text-align: center;
         }
         .firma-container {
             display: flex;
@@ -103,82 +95,67 @@
     <div class="container">
         <div class="header">REPORTE DE SERVICIO</div>
 
-        <div class="form-group">
-            <label>Nombre del Cliente:</label>
-            <input type="text" name="nombre_cliente">
-        </div>
-
-        <div class="form-group">
-            <label>Fecha de Servicio:</label>
-            <input type="date" name="fecha_servicio">
-        </div>
-
         <div class="form-section">
-            <h3>HORA DE SERVICIO</h3>
-            <div class="form-group">
-                <label>Día:</label>
-                <input type="text" name="dia">
-            </div>
-            <div class="form-group">
-                <label>Fecha:</label>
-                <input type="date" name="fecha">
-            </div>
-            <div class="form-group">
-                <label>Hora:</label>
-                <input type="time" name="hora">
-            </div>
-            <div class="form-group">
-                <label>Actividad:</label>
-                <input type="text" name="actividad">
-            </div>
-
-            <h4>Cantidad de Dispositivo y Consumo</h4>
-            <table class="table">
+            <h3>I - INSECTOS RASTREROS / VOLADORES</h3>
+            <table class="checkbox-table">
                 <tr>
-                    <th>Ext.</th>
+                    <th>Servicio</th>
                     <th>Int.</th>
-                    <th>UV</th>
-                    <th>Disp. Dañado</th>
-                    <th>Plaga Señalada</th>
-                    <th>% Pesticida Usado</th>
-                    <th>Método Aplicación</th>
-                    <th>Lugar</th>
+                    <th>Ext.</th>
                 </tr>
                 <tr>
+                    <td>Inspección en el establecimiento</td>
                     <td><input type="checkbox"></td>
                     <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Termonebulización</td>
                     <td><input type="checkbox"></td>
                     <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Aplicación de Feromona</td>
                     <td><input type="checkbox"></td>
                     <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Aspersión</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Nebulización</td>
                     <td><input type="checkbox"></td>
                     <td><input type="checkbox"></td>
                 </tr>
             </table>
-        </div>
-
-        <div class="form-section">
-            <h3>I - INSECTOS RASTREROS / VOLADORES</h3>
-            <div class="checkbox-group"><input type="checkbox"> <label>Inspección en el establecimiento</label></div>
-            <div class="checkbox-group"><input type="checkbox"> <label>Termonebulización</label></div>
-            <div class="checkbox-group"><input type="checkbox"> <label>Aplicación de Feromona</label></div>
-            <div class="checkbox-group"><input type="checkbox"> <label>Aspersión</label></div>
-            <div class="checkbox-group"><input type="checkbox"> <label>Nebulización</label></div>
             <label>Otras aplicaciones:</label>
             <textarea></textarea>
         </div>
 
         <div class="form-section">
             <h3>II - ROEDORES</h3>
-            <div class="checkbox-group"><input type="checkbox"> <label>Inspección y limpieza de trampas</label></div>
-            <label>Hallazgo de actividad de roedor:</label>
-            <div class="checkbox-group">
-                <input type="radio" name="actividad_roedor" value="si"> <label>SI</label>
-                <input type="radio" name="actividad_roedor" value="no"> <label>NO</label>
-            </div>
-            <label>Trampas:</label>
-            <input type="text">
-            <div class="checkbox-group"><input type="checkbox"> <label>Colocación de cebo preventivo</label></div>
+            <table class="checkbox-table">
+                <tr>
+                    <th>Servicio</th>
+                    <th>Seleccionar</th>
+                </tr>
+                <tr>
+                    <td>Inspección y limpieza de trampas</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Hallazgo de actividad de roedor</td>
+                    <td>
+                        <input type="radio" name="actividad_roedor" value="si"> SI
+                        <input type="radio" name="actividad_roedor" value="no"> NO
+                    </td>
+                </tr>
+                <tr>
+                    <td>Colocación de cebo preventivo</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+            </table>
             <label>Otros procedimientos:</label>
             <textarea></textarea>
         </div>
