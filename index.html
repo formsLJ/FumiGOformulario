@@ -91,15 +91,21 @@
             padding-top: 10px;
         }
 
-        /* Nueva parte para alinear las columnas */
+        /* Nueva parte para crear dos columnas: Dispositivos y Consumo */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Cuatro columnas, para dispositivos y consumo */
+            grid-template-columns: 1fr 1fr; /* Dos columnas: una para dispositivos, otra para consumo */
             gap: 20px; /* Espacio entre las columnas */
         }
         .grid-item {
             display: flex;
             flex-direction: column;
+        }
+
+        .column-header {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -132,44 +138,46 @@
         <div class="section">
             <h3>Cantidad de Dispositivo y Consumo</h3>
             <div class="grid-container">
-                <!-- Ext. Dispositivo y Consumo -->
-                <div class="grid-item">
-                    <label>Ext.</label>
-                    <input type="text">
-                </div>
-                <div class="grid-item">
-                    <label>Consumo (Ext.)</label>
-                    <input type="text">
-                </div>
-
-                <!-- Int. Dispositivo y Consumo -->
-                <div class="grid-item">
-                    <label>Int.</label>
-                    <input type="text">
-                </div>
-                <div class="grid-item">
-                    <label>Consumo (Int.)</label>
-                    <input type="text">
-                </div>
-
-                <!-- UV Dispositivo y Consumo -->
-                <div class="grid-item">
-                    <label>UV</label>
-                    <input type="text">
-                </div>
-                <div class="grid-item">
-                    <label>Consumo (UV)</label>
-                    <input type="text">
+                <!-- Columna para Cantidad de Dispositivo -->
+                <div>
+                    <div class="column-header">Cantidad de Dispositivo</div>
+                    <div class="grid-item">
+                        <label>Ext.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Int.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>UV</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Disp. Dañado</label>
+                        <input type="text">
+                    </div>
                 </div>
 
-                <!-- Disp. Dañado Dispositivo y Consumo -->
-                <div class="grid-item">
-                    <label>Disp. Dañado</label>
-                    <input type="text">
-                </div>
-                <div class="grid-item">
-                    <label>Consumo (Disp. Dañado)</label>
-                    <input type="text">
+                <!-- Columna para Cantidad de Consumo -->
+                <div>
+                    <div class="column-header">Cantidad de Consumo</div>
+                    <div class="grid-item">
+                        <label>Consumo (Ext.)</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Consumo (Int.)</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Consumo (UV)</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Consumo (Disp. Dañado)</label>
+                        <input type="text">
+                    </div>
                 </div>
             </div>
         </div>
