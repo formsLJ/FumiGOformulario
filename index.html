@@ -94,7 +94,7 @@
         /* Nueva parte para alinear las columnas */
         .grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Esto hace que cada columna ocupe el 50% del espacio */
+            grid-template-columns: repeat(4, 1fr); /* Cuatro columnas, para dispositivos y consumo */
             gap: 20px; /* Espacio entre las columnas */
         }
         .grid-item {
@@ -132,42 +132,44 @@
         <div class="section">
             <h3>Cantidad de Dispositivo y Consumo</h3>
             <div class="grid-container">
-                <!-- Cantidad de Dispositivo -->
+                <!-- Ext. Dispositivo y Consumo -->
                 <div class="grid-item">
-                    <label>Cantidad de Servicio</label>
-                    <div class="grid-item">
-                        <label>Ext.</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>Int.</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>UV</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>Disp. Dañado</label>
-                        <input type="text">
-                    </div>
+                    <label>Ext.</label>
+                    <input type="text">
+                </div>
+                <div class="grid-item">
+                    <label>Consumo (Ext.)</label>
+                    <input type="text">
                 </div>
 
-                <!-- Cantidad de Consumo -->
+                <!-- Int. Dispositivo y Consumo -->
                 <div class="grid-item">
-                    <label>Cantidad de Consumo</label>
-                    <div class="grid-item">
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <input type="text">
-                    </div>
+                    <label>Int.</label>
+                    <input type="text">
+                </div>
+                <div class="grid-item">
+                    <label>Consumo (Int.)</label>
+                    <input type="text">
+                </div>
+
+                <!-- UV Dispositivo y Consumo -->
+                <div class="grid-item">
+                    <label>UV</label>
+                    <input type="text">
+                </div>
+                <div class="grid-item">
+                    <label>Consumo (UV)</label>
+                    <input type="text">
+                </div>
+
+                <!-- Disp. Dañado Dispositivo y Consumo -->
+                <div class="grid-item">
+                    <label>Disp. Dañado</label>
+                    <input type="text">
+                </div>
+                <div class="grid-item">
+                    <label>Consumo (Disp. Dañado)</label>
+                    <input type="text">
                 </div>
             </div>
         </div>
@@ -249,5 +251,3 @@
 
 </body>
 </html>
-
-
