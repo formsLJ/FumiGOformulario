@@ -90,6 +90,17 @@
             border-top: 2px solid #003366;
             padding-top: 10px;
         }
+
+        /* Nueva parte para alinear las columnas */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Esto hace que cada columna ocupe el 50% del espacio */
+            gap: 20px; /* Espacio entre las columnas */
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -116,48 +127,50 @@
 
             <label>Actividad:</label>
             <input type="text" name="actividad">
+        </div>
 
-           <div class="section">
-    <h3>Cantidad de Dispositivo y Consumo</h3>
-    <div class="grid-container">
-        <div class="grid-item">
-            <label>Cantidad de Servicio</label>
-            <div class="grid-item">
-                <label>Ext.</label>
-                <input type="text">
-            </div>
-            <div class="grid-item">
-                <label>Int.</label>
-                <input type="text">
-            </div>
-            <div class="grid-item">
-                <label>UV</label>
-                <input type="text">
-            </div>
-            <div class="grid-item">
-                <label>Disp. Dañado</label>
-                <input type="text">
+        <div class="section">
+            <h3>Cantidad de Dispositivo y Consumo</h3>
+            <div class="grid-container">
+                <!-- Cantidad de Dispositivo -->
+                <div class="grid-item">
+                    <label>Cantidad de Servicio</label>
+                    <div class="grid-item">
+                        <label>Ext.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Int.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>UV</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Disp. Dañado</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <!-- Cantidad de Consumo -->
+                <div class="grid-item">
+                    <label>Cantidad de Consumo</label>
+                    <div class="grid-item">
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <input type="text">
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- Aquí agregamos la parte de Consumo junto a Dispositivo -->
-        <div class="grid-item">
-            <label>Cantidad de Consumo</label>
-            <div class="grid-item">
-                <input type="text">
-            </div>
-            <div class="grid-item">
-                <input type="text">
-            </div>
-            <div class="grid-item">
-                <input type="text">
-            </div>
-            <div class="grid-item">
-                <input type="text">
-            </div>
-        </div>
-    </div>
-</div>
 
         <div class="section">
             <h3><input type="checkbox"> I - Insectos Rastreros / Voladores</h3>
@@ -236,3 +249,4 @@
 
 </body>
 </html>
+
