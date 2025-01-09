@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Servicio - FumiGO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background: #003366;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            border: 1px solid #003366;
+            padding: 8px;
+            text-align: center;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #003366;
+            border-radius: 5px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .btn-submit {
+            background: #003366;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .btn-submit:hover {
+            background: #0055a5;
+        }
+        .firma-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .firma {
+            width: 45%;
+            text-align: center;
+            border-top: 2px solid #003366;
+            padding-top: 10px;
+        }
+
+        /* Nueva parte para crear dos columnas: Dispositivos y Consumo */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas: una para dispositivos, otra para consumo */
+            gap: 20px; /* Espacio entre las columnas */
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column-header {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">REPORTE DE SERVICIO</div>
+
+        <label>Nombre del Cliente:</label>
+        <input type="text" name="nombre_cliente">
+
+        <label>Fecha de Servicio:</label>
+        <input type="date" name="fecha_servicio">
+
+        <div class="section">
+            <h3>Hora de Servicio</h3>
+            <label>Día:</label>
+            <input type="text" name="dia">
+            
+            <label>Fecha:</label>
+            <input type="date" name="fecha">
+
+            <label>Hora:</label>
+            <input type="time" name="hora">
+
+            <label>Actividad:</label>
+            <input type="text" name="actividad">
+        </div>
+
+        <div class="section">
+            <h3>Cantidad de Dispositivo y Consumo</h3>
+            <div class="grid-container">
+                <!-- Columna para Cantidad de Dispositivo -->
+                <div>
+                    <div class="column-header">Cantidad de Dispositivo</div>
+                    <div class="grid-item">
+                        <label>Ext.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Int.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>UV</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Disp. Dañado</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <!-- Columna para Cantidad de Consumo -->
+                <div>
+                    <div class="column-header">Cantidad de Consumo</div>
+                    <div class="grid-item">
+                        <label>Ext.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Int.</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>UV</label>
+                        <input type="text">
+                    </div>
+                    <div class="grid-item">
+                        <label>Disp. Dañado</label>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <label>Actividad:</label>
+                <input type="text" name="actividad">
+            </div>
+        </div>
+
+        <!-- II - Roedores Sección -->
+        <div class="section">
+            <h3><input type="checkbox"> II - Roedores</h3>
+            
+            <!-- Inspección y limpieza de trampas -->
+            <div class="checkbox-group">
+                <input type="checkbox"> 
+                <label>Inspección y limpieza de trampas</label>
+            </div>
+
+            <!-- Hallazgo de actividad de roedor -->
+            <label>Hallazgo de actividad de roedor:</label>
+            <div class="checkbox-group">
+                <input type="radio" name="actividad_roedor" value="si"> <label>SI</label>
+                <input type="radio" name="actividad_roedor" value="no"> <label>NO</label>
+            </div>
+
+            <!-- Trampas -->
+            <label>Trampas:</label>
+            <input type="text" name="trampas">
+
+            <!-- Colocación de cebo preventivo -->
+            <div class="checkbox-group">
+                <input type="checkbox"> 
+                <label>Colocación de cebo preventivo</label>
+            </div>
+
+            <!-- Otros procedimientos -->
+            <label>Otros procedimientos:</label>
+            <textarea name="otros_procedimientos"></textarea>
+        </div>
+
+        <div class="section">
+            <h3><input type="checkbox"> III - Recomendaciones</h3>
+            <textarea></textarea>
+        </div>
+
+        <div class="firma-container">
+            <div class="firma">Firma del Cliente / Encargado</div>
+            <div class="firma">Especialista de Servicios</div>
+        </div>
+
+        <button class="btn-submit" type="submit">Enviar Reporte</button>
+    </div>
+
+</body>
+</html>
