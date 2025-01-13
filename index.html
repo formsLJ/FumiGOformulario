@@ -431,26 +431,24 @@
          <script>
         document.getElementById("downloadBtn").addEventListener("click", function () {
     // Selecciona el elemento que quieres capturar
-    const element = document.body; // Para capturar toda la página
+    const element = document.getElementById("formContent"); // Para capturar toda la página
     // o usa un contenedor específico
     // const element = document.getElementById("formContent");
 
     // Opciones para la generación del PDF
     const options = {
-        filename: 'pagina_completa.pdf',
-        margin: [10, 10, 10, 10], // Opcional: márgenes en milímetros
-        html2canvas: {
-            scale: 2, // Resolución más alta
-            scrollX: 0, // Captura sin desplazamiento horizontal
-            scrollY: 0, // Captura sin desplazamiento vertical
-        },
-        jsPDF: {
-            unit: 'mm',
-            format: 'a4',
-            orientation: 'portrait', // Vertical ('portrait') u horizontal ('landscape')
-        }
-    };
-
+    filename: 'pagina_completa.pdf',
+    html2canvas: {
+        scale: 2, // Mejor calidad de renderizado
+        scrollX: 0,
+        scrollY: 0,
+    },
+    jsPDF: {
+        unit: 'px', // Usa píxeles para mayor precisión
+        format: [element.scrollWidth, element.scrollHeight], // Ajusta dinámicamente el tamaño
+        orientation: 'portrait',
+    },
+};
     // Genera el PDF
     html2pdf().set(options).from(element).save();
 });
@@ -472,7 +470,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 
     
 </body>
