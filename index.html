@@ -338,23 +338,38 @@
         </section>
 
         <section class="rodents">
-            <h2>II - ROEDORES</h2>
-            <label><input type="checkbox"> Inspección y limpieza de trampas</label>
-            <div>
-                <p>Hallazgo de actividad de roedor:</p>
-                <label><input type="radio" name="roedor" required> SI</label>
-                <label><input type="radio" name="roedor"> NO</label>
-                <label for="trampas">Trampas: </label><input type="text" id="trampas">
-            </div>
-            <label><input type="checkbox"> Colocación de cebo preventivo</label>
-            <p>Otros procedimientos:</p>
-            <textarea rows="3"></textarea>
-        </section>
+    <h2>II - ROEDORES</h2>
+    
+    <!-- Inspección y limpieza de trampas -->
+    <div>
+        <label><input type="checkbox"> Inspección y limpieza de trampas</label>
+    </div>
+    
+    <!-- Hallazgo de actividad de roedor -->
+    <div>
+        <p>Hallazgo de actividad de roedor:</p>
+        <label><input type="radio" name="roedor-actividad" required> SI</label>
+        <label><input type="radio" name="roedor-actividad"> NO</label>
+    </div>
+    
+    <!-- Trampas -->
+    <div>
+        <label for="trampas">Trampas:</label>
+        <input type="text" id="trampas" placeholder="Cantidad de trampas encontradas">
+    </div>
+    
+    <!-- Colocación de cebo preventivo -->
+    <div>
+        <label><input type="checkbox"> Colocación de cebo preventivo</label>
+    </div>
+    
+    <!-- Otros procedimientos -->
+    <div>
+        <p>Otros procedimientos:</p>
+        <textarea rows="3" placeholder="Describa otros procedimientos aplicados"></textarea>
+    </div>
+</section>
 
-        <section class="recommendations">
-            <h2>III - RECOMENDACIONES</h2>
-            <textarea rows="4" required></textarea>
-        </section>
 
         <footer>
             <div class="footer-info">
