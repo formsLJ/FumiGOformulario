@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Servicio - FumiGO</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -45,11 +44,6 @@
             width: 30%;
         }
 
-        .logo img {
-            max-width: 100px;
-            height: auto;
-        }
-
         .service-time {
             display: flex;
             justify-content: space-between;
@@ -58,7 +52,7 @@
         }
 
         .block {
-            width: 48%;
+            width: 30%;
             background-color: #f0f0f0;
             padding: 15px;
             border-radius: 5px;
@@ -119,18 +113,13 @@
         }
 
         @media (max-width: 768px) {
-            .service-time .block {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            table, th, td {
+            table {
                 font-size: 12px;
             }
 
-            .header-info div {
+            .service-time .block, .insects, .rodents, .recommendations {
                 width: 100%;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
             }
 
             .logo img {
@@ -164,10 +153,35 @@
             width: 45%;
         }
 
-        .checkbox-group label, .checkbox-group input {
+        .checkbox-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .checkbox-column {
+            width: 48%;
+        }
+
+        .checkbox-column h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-column label {
             display: block;
             margin: 5px 0;
+            font-size: 12px;
         }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
     </style>
 </head>
 <body>
@@ -184,7 +198,7 @@
                     <input type="date" id="fecha-servicio" required>
                 </div>
                 <div class="logo">
-                    <img src="" alt="Logo">
+                    <img src="" alt="">
                 </div>
             </div>
         </header>
@@ -262,6 +276,27 @@
                             <td><input type="text"></td>
                             <td><input type="text"></td>
                         </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -270,16 +305,22 @@
         <section class="insects">
             <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
             <div class="checkbox-group">
-                <label><input type="checkbox"> Inspección en el establecimiento (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Termonebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aplicación de Feromona (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aspersión (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Nebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
+                <div class="checkbox-column">
+                    <h3>Int.</h3>
+                    <label><input type="checkbox"> Inspección en el establecimiento</label>
+                    <label><input type="checkbox"> Termonebulización</label>
+                    <label><input type="checkbox"> Aplicación de Feromona</label>
+                    <label><input type="checkbox"> Aspersión</label>
+                    <label><input type="checkbox"> Nebulización</label>
+                </div>
+                <div class="checkbox-column">
+                    <h3>Ext.</h3>
+                    <label><input type="checkbox"> Inspección en el establecimiento</label>
+                    <label><input type="checkbox"> Termonebulización</label>
+                    <label><input type="checkbox"> Aplicación de Feromona</label>
+                    <label><input type="checkbox"> Aspersión</label>
+                    <label><input type="checkbox"> Nebulización</label>
+                </div>
             </div>
             <p>Otras aplicaciones:</p>
             <textarea rows="3"></textarea>
@@ -330,7 +371,7 @@
             </div>
         </footer>
     </div>
-
+        // Aquí iría tu script para las firmas
     <script>
         // Configuración de los lienzos para las firmas
         const canvasCliente = document.getElementById('firmaCliente');
