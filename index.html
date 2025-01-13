@@ -431,39 +431,30 @@
         </section>
     </div>
         </form>
-        <script>
-    document.getElementById("downloadBtn").addEventListener("click", function() {
-        // Obtener los valores del formulario
-        const cliente = document.getElementById("cliente").value;
-        const fechaServicio = document.getElementById("fecha-servicio").value;
+         <script>
+        document.getElementById("downloadBtn").addEventListener("click", function() {
+            // Obtener el contenido del formulario
+            const formContent = document.getElementById("formContent");
 
-        // Comprobar si los campos no están vacíos
-        if (cliente === "" || fechaServicio === "") {
-            alert("Por favor, llena todos los campos.");
-            return;
-        }
+            // Configurar las opciones para la conversión a PDF
+            const options = {
+                filename: 'reporte_servicio.pdf',
+                html2canvas: { scale: 4 }, // Escala de la imagen para más detalle
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
 
-        // Crear el objeto jsPDF
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+            // Generar el PDF con el contenido del formulario
+            html2pdf().from(formContent).set(options).save();
 
-        // Agregar contenido al PDF
-        doc.text("Reporte de Servicio", 20, 20);
-        doc.text(`Nombre del Cliente: ${cliente}`, 20, 30);
-        doc.text(`Fecha de Servicio: ${fechaServicio}`, 20, 40);
-
-        // Descargar el PDF
-        doc.save("reporte_servicio.pdf");
-
-        // Usar un pequeño retraso para enviar el formulario después de la descarga
-        setTimeout(function() {
-            // Asegurarse de que el formulario se envíe solo después de la descarga
-            document.getElementById("myForm").submit();
-        }, 1500); // 1.5 segundos de espera (puedes ajustar este tiempo)
-    });
-</script>
+            // Después de generar el PDF, enviar el formulario
+            setTimeout(function() {
+                document.getElementById("myForm").submit();
+            }, 1500); // Esperar 1.5 segundos antes de enviar el formulario
+        });
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 
     
 </body>
