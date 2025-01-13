@@ -336,62 +336,81 @@
             </div>
         </footer>
     </div>
-    <script>
-        // Configuración de los lienzos para las firmas
-        const canvasCliente = document.getElementById('firmaCliente');
-        const contextCliente = canvasCliente.getContext('2d');
-        let isDrawingCliente = false;
+   <script>
+    // Configuración de los lienzos para las firmas
+    const canvasCliente = document.getElementById('firmaCliente');
+    const contextCliente = canvasCliente.getContext('2d');
+    let isDrawingCliente = false;
 
-        const canvasEspecialista = document.getElementById('firmaEspecialista');
-        const contextEspecialista = canvasEspecialista.getContext('2d');
-        let isDrawingEspecialista = false;
+    const canvasEspecialista = document.getElementById('firmaEspecialista');
+    const contextEspecialista = canvasEspecialista.getContext('2d');
+    let isDrawingEspecialista = false;
 
-        // Función para comenzar a dibujar
-        function startDrawing(e, context, isDrawing) {
-            isDrawing = true;
-            draw(e, context);
+    // Función para comenzar a dibujar
+    function startDrawing(e, context, canvas, isDrawing) {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        isDrawing = true;
+        draw(x, y, context);
+    }
+
+    // Función para detener el dibujo
+    function stopDrawing(isDrawing) {
+        isDrawing = false;
+        context.beginPath();
+    }
+
+    // Función para dibujar en el canvas
+    function draw(x, y, context) {
+        if (!isDrawing) return;
+        context.lineWidth = 2;
+        context.lineCap = 'round';
+        context.strokeStyle = '#000';
+
+        context.lineTo(x, y);
+        context.stroke();
+        context.beginPath();
+        context.moveTo(x, y);
+    }
+
+    // Función para limpiar la firma
+    function clearCanvas(canvas, context) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Eventos para cliente
+    canvasCliente.addEventListener('mousedown', (e) => startDrawing(e, contextCliente, canvasCliente, isDrawingCliente));
+    canvasCliente.addEventListener('mousemove', (e) => {
+        if (isDrawingCliente) {
+            const rect = canvasCliente.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            draw(x, y, contextCliente);
         }
+    });
+    canvasCliente.addEventListener('mouseup', () => stopDrawing(isDrawingCliente));
+    canvasCliente.addEventListener('mouseout', () => stopDrawing(isDrawingCliente));
 
-        // Función para detener el dibujo
-        function stopDrawing(isDrawing) {
-            isDrawing = false;
-            context.beginPath();
+    // Eventos para especialista
+    canvasEspecialista.addEventListener('mousedown', (e) => startDrawing(e, contextEspecialista, canvasEspecialista, isDrawingEspecialista));
+    canvasEspecialista.addEventListener('mousemove', (e) => {
+        if (isDrawingEspecialista) {
+            const rect = canvasEspecialista.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            draw(x, y, contextEspecialista);
         }
+    });
+    canvasEspecialista.addEventListener('mouseup', () => stopDrawing(isDrawingEspecialista));
+    canvasEspecialista.addEventListener('mouseout', () => stopDrawing(isDrawingEspecialista));
 
-        // Función para dibujar en el canvas
-        function draw(e, context) {
-            if (!isDrawing) return;
-            context.lineWidth = 2;
-            context.lineCap = 'round';
-            context.strokeStyle = '#000';
+    // Función para limpiar las firmas
+    document.getElementById('clearCliente').addEventListener('click', () => clearCanvas(canvasCliente, contextCliente));
+    document.getElementById('clearEspecialista').addEventListener('click', () => clearCanvas(canvasEspecialista, contextEspecialista));
+</script>
 
-            context.lineTo(e.clientX - canvasCliente.offsetLeft, e.clientY - canvasCliente.offsetTop);
-            context.stroke();
-            context.beginPath();
-            context.moveTo(e.clientX - canvasCliente.offsetLeft, e.clientY - canvasCliente.offsetTop);
-        }
-
-        // Función para limpiar la firma
-        function clearCanvas(canvas, context) {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-        }
-
-        // Eventos para cliente
-        canvasCliente.addEventListener('mousedown', (e) => startDrawing(e, contextCliente, isDrawingCliente));
-        canvasCliente.addEventListener('mousemove', (e) => draw(e, contextCliente));
-        canvasCliente.addEventListener('mouseup', () => stopDrawing(isDrawingCliente));
-        canvasCliente.addEventListener('mouseout', () => stopDrawing(isDrawingCliente));
-
-        document.getElementById('clearCliente').addEventListener('click', () => clearCanvas(canvasCliente, contextCliente));
-
-        // Eventos para especialista
-        canvasEspecialista.addEventListener('mousedown', (e) => startDrawing(e, contextEspecialista, isDrawingEspecialista));
-        canvasEspecialista.addEventListener('mousemove', (e) => draw(e, contextEspecialista));
-        canvasEspecialista.addEventListener('mouseup', () => stopDrawing(isDrawingEspecialista));
-        canvasEspecialista.addEventListener('mouseout', () => stopDrawing(isDrawingEspecialista));
-
-        document.getElementById('clearEspecialista').addEventListener('click', () => clearCanvas(canvasEspecialista, contextEspecialista));
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
