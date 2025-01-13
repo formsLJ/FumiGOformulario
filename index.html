@@ -444,12 +444,10 @@
             };
 
             // Generar el PDF con el contenido del formulario
-            html2pdf().from(formContent).set(options).save();
-
-            // Después de generar el PDF, enviar el formulario
-            setTimeout(function() {
+            html2pdf().from(formContent).set(options).save().then(() => {
+                // Después de que el PDF se haya descargado, enviar el formulario
                 document.getElementById("myForm").submit();
-            }, 1500); // Esperar 1.5 segundos antes de enviar el formulario
+            });
         });
     </script>
 
