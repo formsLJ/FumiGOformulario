@@ -170,6 +170,17 @@
             margin-top: 30px;
         }
 
+.page-break {
+    page-break-before: always; /* Obliga a un salto de página */
+    page-break-inside: avoid; /* Evita cortes dentro de elementos */
+}
+        
+        #formContent {
+    width: 100%; 
+    height: auto; /* Asegura que toda la altura sea incluida */
+    overflow: visible; /* Permite capturar contenido no visible */
+}
+
         .footer-info p {
             margin-bottom: 5px;
         }
