@@ -430,36 +430,38 @@
             <p>© 2025 FumiGO. Todos los derechos reservados.</p>
         </section>
     </div>
-         <script>
-        document.getElementById("downloadBtn").addEventListener("click", function() {
-            // Obtener los valores del formulario
-            const cliente = document.getElementById("cliente").value;
-            const fechaServicio = document.getElementById("fecha-servicio").value;
+        <script>
+    document.getElementById("downloadBtn").addEventListener("click", function() {
+        // Obtener los valores del formulario
+        const cliente = document.getElementById("cliente").value;
+        const fechaServicio = document.getElementById("fecha-servicio").value;
 
-            // Comprobar si los campos no están vacíos
-            if (cliente === "" || fechaServicio === "") {
-                alert("Por favor, llena todos los campos.");
-                return;
-            }
+        // Comprobar si los campos no están vacíos
+        if (cliente === "" || fechaServicio === "") {
+            alert("Por favor, llena todos los campos.");
+            return;
+        }
 
-            // Crear el objeto jsPDF
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+        // Crear el objeto jsPDF
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
 
-            // Agregar contenido al PDF
-            doc.text("Reporte de Servicio", 20, 20);
-            doc.text(`Nombre del Cliente: ${cliente}`, 20, 30);
-            doc.text(`Fecha de Servicio: ${fechaServicio}`, 20, 40);
+        // Agregar contenido al PDF
+        doc.text("Reporte de Servicio", 20, 20);
+        doc.text(`Nombre del Cliente: ${cliente}`, 20, 30);
+        doc.text(`Fecha de Servicio: ${fechaServicio}`, 20, 40);
 
-            // Descargar el PDF
-            doc.save("reporte_servicio.pdf");
+        // Descargar el PDF
+        doc.save("reporte_servicio.pdf");
 
-            // Después de generar el PDF, enviar el formulario
-             setTimeout(function() {
+        // Usar un pequeño retraso para enviar el formulario después de la descarga
+        setTimeout(function() {
+            // Asegurarse de que el formulario se envíe solo después de la descarga
             document.getElementById("myForm").submit();
-        }, 1000); // Espera 1 segundo para asegurar que el PDF se haya descargado antes de enviar el formulario
+        }, 1500); // 1.5 segundos de espera (puedes ajustar este tiempo)
     });
-    </script>
+</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <button type="button" id="downloadBtn">Generar PDF y Enviar</button>
     </form>
