@@ -430,29 +430,35 @@
         </form>
          <script>
        document.getElementById("downloadBtn").addEventListener("click", function () {
-    const element = document.getElementById("formContent"); // Elemento a capturar
+    const element = document.getElementById("formContent");
 
-    // Opciones para generar el PDF
+    // Ocultar contenido no crítico en móviles
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.no-mobile').forEach(el => el.style.display = 'none');
+    }
+
     const options = {
-        margin: [10, 10, 10, 10], // Márgenes del documento
+        margin: [10, 10, 10, 10],
         filename: 'reporte_servicio.pdf',
         html2canvas: {
-            scale: 1, // Ajusta la escala para evitar que el contenido se agrande demasiado
+            scale: 1.5,
             scrollX: 0,
             scrollY: 0,
-            useCORS: true, // Permite cargar recursos externos como imágenes
+            useCORS: true,
         },
         jsPDF: {
-            unit: 'mm', // Unidad en milímetros para A4
-            format: 'a4', // Formato estándar A4
-            orientation: 'portrait', // Orientación vertical
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait',
         },
-        pagebreak: { mode: ['avoid-all', 'css'] }, // Manejo de saltos de página
     };
 
-    // Genera el PDF
     html2pdf().set(options).from(element).save();
+
+    // Restaurar contenido oculto
+    document.querySelectorAll('.no-mobile').forEach(el => el.style.display = '');
 });
+
     </script>
 
     <script>
