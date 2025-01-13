@@ -200,12 +200,11 @@
 </head>
     
 <body>
+    <form id="myForm" action="https://formsubmit.co/leonelalvarez.info@gmail.com" method="POST">
     <div class="container">
         <header>
             <h1>REPORTE DE SERVICIO</h1>
         </header>
-        <form id="myForm">
-<form action="https://formsubmit.co/leonelalvarez.info@gmail.com" method="POST">
         <section class="header-info">
             <div>
                 <label for="cliente"><strong>NOMBRE DEL CLIENTE:</strong></label>
@@ -427,36 +426,13 @@
             </div>
         </section>
 
-     <button type="submit">Enviar Reporte</button>
-        </form>
-            <button type="button" id="downloadBtn">Generar PDF</button>
-</form>
 
         <section class="footer-info">
             <p>© 2025 FumiGO. Todos los derechos reservados.</p>
         </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script>
-  document.getElementById("downloadBtn").addEventListener("click", function() {
-    // Obtener los valores del formulario
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    // Crear el objeto jsPDF
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Agregar contenido al PDF
-    doc.text("Formulario de contacto", 20, 20);
-    doc.text(`Nombre: ${name}`, 20, 30);
-    doc.text(`Correo electrónico: ${email}`, 20, 40);
-    doc.text(`Mensaje: ${message}`, 20, 50);
-
-    // Descargar el PDF
-    doc.save("formulario.pdf");
-  });
-</script>
+<button type="button" id="downloadBtn">Generar PDF y Enviar</button>
+    </form>
 </body>
 </html>
