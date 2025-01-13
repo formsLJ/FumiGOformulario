@@ -52,92 +52,41 @@
         }
 
         .block {
-            width: 30%;
+            width: 100%;  /* Asegura que el bloque ocupe todo el ancho disponible */
+            margin-bottom: 15px;  /* Espacio entre bloques */
+            padding: 10px;  /* Relleno para que no quede pegado al borde */
             background-color: #f0f0f0;
-            padding: 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            margin-bottom: 10px;
         }
 
-        .block h3 {
-            background-color: #003366;
-            color: #fff;
-            padding: 5px;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 14px;
+        .block label, .block p, .block input, .block textarea {
+            display: block;  /* Hace que cada elemento esté en su propia línea */
+            width: 100%;  /* Hace que los elementos ocupen el 100% del ancho del bloque */
+            margin-bottom: 10px;  /* Espacio entre cada campo */
         }
 
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 5px;
-            font-size: 10px;
-            text-align: center;
+        .block input[type="checkbox"], .block input[type="radio"] {
+            width: auto;  /* Permite que los checkboxes tengan su tamaño natural */
+            margin-right: 10px;  /* Añade espacio a la derecha de los checkboxes */
         }
 
-        th, td {
-            width: 15%;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
-            width: 100%;
+        .block input[type="text"], .block textarea {
+            width: 100%;  /* Asegura que los campos de texto y textarea ocupen todo el ancho */
             padding: 8px;
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
 
-        input:focus, textarea:focus {
-            border: 2px solid #00509E;
-            outline: none;
+        .radio-group label {
+            display: inline-block;
+            margin-right: 15px;
         }
 
-        button {
-            background-color: #00509E;
-            color: white;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #003366;
-        }
-
-        @media (max-width: 768px) {
-            table {
-                font-size: 12px;
-            }
-
-            .service-time .block, .insects, .rodents, .recommendations {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .logo img {
-                width: 100%;
-                max-width: 100px;
-                height: auto;
-            }
-        }
-
-        @media print {
-            button {
-                display: none;
-            }
-
-            body {
-                padding: 0;
-                background-color: #fff;
-            }
+        textarea {
+            width: 100%;  /* Asegura que el textarea ocupe todo el ancho */
+            height: 100px;  /* Establece una altura para el textarea */
         }
 
         .signatures {
@@ -153,37 +102,23 @@
             width: 45%;
         }
 
-        .checkbox-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            flex-wrap: wrap;
+        .footer-info {
+            text-align: center;
+            margin-top: 30px;
         }
 
-        .checkbox-column {
-            width: 48%;
-            margin-bottom: 15px;
-        }
-
-        .checkbox-column h3 {
+        button {
+            background-color: #00509E;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
             font-size: 14px;
-            margin-bottom: 10px;
+            cursor: pointer;
         }
 
-        .checkbox-column label {
-            display: block;
-            margin: 5px 0;
-            font-size: 12px;
+        button:hover {
+            background-color: #003366;
         }
-
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
     </style>
 </head>
 <body>
@@ -306,70 +241,67 @@
 
         <section class="insects">
             <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
-            <div class="checkbox-group">
-                <div class="checkbox-column">
-                    <h3>Inspección en el establecimiento</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-                <div class="checkbox-column">
-                    <h3>Termonebulización</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-                <div class="checkbox-column">
-                    <h3>Aplicación de Feromona</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-                <div class="checkbox-column">
-                    <h3>Aspersión</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-                <div class="checkbox-column">
-                    <h3>Nebulización</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
+            <div class="block">
+                <label><input type="checkbox"> Inspección en el establecimiento (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Termonebulización (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Aplicación de Feromona (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Aspersión (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Nebulización (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
             </div>
             <p>Otras aplicaciones:</p>
             <textarea rows="3"></textarea>
         </section>
 
         <section class="rodents">
-    <h2>II - ROEDORES</h2>
-    
-    <!-- Inspección y limpieza de trampas -->
-    <div class="block">
-        <label><input type="checkbox"> Inspección y limpieza de trampas</label>
-    </div>
-    
-    <!-- Hallazgo de actividad de roedor -->
-    <div class="block">
-        <p>Hallazgo de actividad de roedor:</p>
-        <label><input type="radio" name="roedor-actividad" required> SI</label>
-        <label><input type="radio" name="roedor-actividad"> NO</label>
-        <div>
-            <label for="trampas">Trampas:</label>
-            <input type="text" id="trampas" placeholder="Cantidad de trampas encontradas">
-        </div>
-    </div>
-    
-    <!-- Colocación de cebo preventivo -->
-    <div class="block">
-        <label><input type="checkbox"> Colocación de cebo preventivo</label>
-    </div>
-    
-    <!-- Otros procedimientos -->
-    <div class="block">
-        <p>Otros procedimientos:</p>
-        <textarea rows="3" placeholder="Describa otros procedimientos aplicados"></textarea>
-    </div>
-</section>
+            <h2>II - ROEDORES</h2>
+            <div class="block">
+                <label><input type="checkbox"> Inspección y limpieza de trampas</label>
+                <div>
+                    <p>Hallazgo de actividad de roedor:</p>
+                    <label><input type="radio" name="roedor" required> SI</label>
+                    <label><input type="radio" name="roedor"> NO</label>
+                    <label for="trampas">Trampas: </label><input type="text" id="trampas">
+                </div>
+                <label><input type="checkbox"> Colocación de cebo preventivo</label>
+                <p>Otros procedimientos:</p>
+                <textarea rows="3"></textarea>
+            </div>
+        </section>
 
+        <section class="recommendations">
+            <h2>III - RECOMENDACIONES</h2>
+            <textarea rows="4" required></textarea>
+        </section>
 
-
+        <footer>
+            <div class="footer-info">
+                <p><strong>FUMIGO</strong> - LA EXCELENCIA EN EL CONTROL DE PLAGAS</p>
+                <p>RUC N°: 0012093630027M</p>
+                <p>TELÉFONOS: 7752 4441 / 8820 8016</p>
+                <p>DIRECCIÓN: COLONIA DEL PERIODISTA, CASA 216</p>
+                <p>FACEBOOK: FumiGO</p>
+            </div>
+            <div class="signatures">
+                <div>
+                    <p>__________________________</p>
+                    <p>FIRMA DEL CLIENTE / Encargado</p>
+                    <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+                    <button onclick="clearCanvas('firmaCliente')">Borrar Firma Cliente</button>
+                    <button onclick="saveSignature('firmaCliente')">Guardar Firma Cliente</button>
+                </div>
+                <div>
+                    <p>__________________________</p>
+                    <p>ESPECIALISTA DE SERVICIOS</p>
+                    <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+                    <button onclick="clearCanvas('firmaEspecialista')">Borrar Firma Especialista</button>
+                    <button onclick="saveSignature('firmaEspecialista')">Guardar Firma Especialista</button>
+                </div>
+            </div>
         <footer>
             <div class="footer-info">
                 <p><strong>FUMIGO</strong> - LA EXCELENCIA EN EL CONTROL DE PLAGAS</p>
