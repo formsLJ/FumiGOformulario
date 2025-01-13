@@ -1,121 +1,113 @@
-export default function Widget() {
-    return (
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Reporte de Servicio</title>
-        </head>
-        <body className="bg-background text-foreground">
-            <div className="p-6 bg-background rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold text-primary mb-4">REPORTE DE SERVICIO</h1>
-                
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label className="block text-muted-foreground">NOMBRE DEL CLIENTE</label>
-                        <input type="text" className="border border-border rounded p-2 w-full" />
-                    </div>
-                    <div>
-                        <label className="block text-muted-foreground">FECHA DE SERVICIO</label>
-                        <input type="date" className="border border-border rounded p-2 w-full" />
-                    </div>
-                </div>
-                <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div>
-                        <label className="block text-muted-foreground">HORA DE SERVICIO</label>
-                        <input type="time" className="border border-border rounded p-2 w-full" />
-                    </div>
-                    <div>
-                        <label className="block text-muted-foreground">DÍA</label>
-                        <input type="text" className="border border-border rounded p-2 w-full" />
-                    </div>
-                    <div>
-                        <label className="block text-muted-foreground">HORA</label>
-                        <input type="text" className="border border-border rounded p-2 w-full" />
-                    </div>
-                </div>
-                <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div>
-                        <label className="block text-muted-foreground">CANTIDAD DE DISPOSITIVO</label>
-                        <input type="text" className="border border-border rounded p-2 w-full" placeholder="Ext." />
-                        <input type="text" className="border border-border rounded p-2 w-full" placeholder="Int." />
-                    </div>
-                    <div>
-                        <label className="block text-muted-foreground">CANTIDAD DE CONSUMO</label>
-                        <input type="text" className="border border-border rounded p-2 w-full" placeholder="Uv." />
-                    </div>
-                    <div>
-                        <label className="block text-muted-foreground">PLAGA SEÑALADA</label>
-                        <input type="text" className="border border-border rounded p-2 w-full" />
-                    </div>
-                </div>
-                <h2 className="text-xl font-bold text-primary mt-6">I - INSECTOS RASTREROS / VOLADORES</h2>
-                <div className="mb-4">
-                    <label className="flex items-center">
-                        Inspección en el establecimiento
-                        <button className="border border-border rounded p-1 ml-2">Int.</button>
-                        <button className="border border-border rounded p-1 ml-2">Ext.</button>
-                        <input type="checkbox" className="ml-2" />
-                    </label>
-                    <label className="flex items-center">
-                        Termonebulización
-                        <button className="border border-border rounded p-1 ml-2">Int.</button>
-                        <button className="border border-border rounded p-1 ml-2">Ext.</button>
-                        <input type="checkbox" className="ml-2" />
-                    </label>
-                    <label className="flex items-center">
-                        Aplicación de Feromona
-                        <button className="border border-border rounded p-1 ml-2">Int.</button>
-                        <button className="border border-border rounded p-1 ml-2">Ext.</button>
-                        <input type="checkbox" className="ml-2" />
-                    </label>
-                    <label className="flex items-center">
-                        Aspersión
-                        <button className="border border-border rounded p-1 ml-2">Int.</button>
-                        <button className="border border-border rounded p-1 ml-2">Ext.</button>
-                        <input type="checkbox" className="ml-2" />
-                    </label>
-                    <label className="flex items-center">
-                        Nebulización
-                        <button className="border border-border rounded p-1 ml-2">Int.</button>
-                        <button className="border border-border rounded p-1 ml-2">Ext.</button>
-                        <input type="checkbox" className="ml-2" />
-                    </label>
-                    <label className="block text-muted-foreground">Otras aplicaciones:</label>
-                    <textarea className="border border-border rounded p-2 w-full" rows="3"></textarea>
-                </div>
-                <h2 className="text-xl font-bold text-primary mt-6">II - ROEDORES</h2>
-                <div className="mb-4">
-                    <label className="flex items-center">
-                        Inspección y limpieza de trampas
-                    </label>
-                    <label className="flex items-center">
-                        Hallazgo de actividad de roedor
-                        <span className="ml-2">SI</span>
-                        <input type="checkbox" className="mr-2" />
-                        <span className="ml-2">NO</span>
-                        Trampas: <input type="text" className="border border-border rounded p-1 ml-2" />
-                    </label>
-                    <label className="block text-muted-foreground">Otros procedimientos:</label>
-                    <textarea className="border border-border rounded p-2 w-full" rows="3"></textarea>
-                </div>
-                <h2 className="text-xl font-bold text-primary mt-6">III - RECOMENDACIONES</h2>
-                <textarea className="border border-border rounded p-2 w-full" rows="3"></textarea>
-                <div className="mt-6">
-                    <label className="block text-muted-foreground">FIRMA DEL CLIENTE / Encargado</label>
-                    <input type="text" className="border border-border rounded p-2 w-full" />
-                </div>
-                
-                <div className="mt-4">
-                    <label className="block text-muted-foreground">ESPECIALISTA DE SERVICIOS</label>
-                    <input type="text" className="border border-border rounded p-2 w-full" />
-                </div>
-            </div>
-        </body>
-        </html>
-        
-        
-    )
-}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reporte de Servicio</title>
+  </head>
+  <body class="bg-background text-foreground">
+    <div class="p-6 bg-background rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold text-primary mb-4">REPORTE DE SERVICIO</h1>
+
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-muted-foreground">NOMBRE DEL CLIENTE</label>
+          <input type="text" class="border border-border rounded p-2 w-full" />
+        </div>
+        <div>
+          <label class="block text-muted-foreground">FECHA DE SERVICIO</label>
+          <input type="date" class="border border-border rounded p-2 w-full" />
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-4 mb-4">
+        <div>
+          <label class="block text-muted-foreground">HORA DE SERVICIO</label>
+          <input type="time" class="border border-border rounded p-2 w-full" />
+        </div>
+        <div>
+          <label class="block text-muted-foreground">DÍA</label>
+          <input type="text" class="border border-border rounded p-2 w-full" />
+        </div>
+        <div>
+          <label class="block text-muted-foreground">HORA</label>
+          <input type="text" class="border border-border rounded p-2 w-full" />
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-4 mb-4">
+        <div>
+          <label class="block text-muted-foreground">CANTIDAD DE DISPOSITIVO</label>
+          <input type="text" class="border border-border rounded p-2 w-full" placeholder="Ext." />
+          <input type="text" class="border border-border rounded p-2 w-full" placeholder="Int." />
+        </div>
+        <div>
+          <label class="block text-muted-foreground">CANTIDAD DE CONSUMO</label>
+          <input type="text" class="border border-border rounded p-2 w-full" placeholder="Uv." />
+        </div>
+        <div>
+          <label class="block text-muted-foreground">PLAGA SEÑALADA</label>
+          <input type="text" class="border border-border rounded p-2 w-full" />
+        </div>
+      </div>
+      <h2 class="text-xl font-bold text-primary mt-6">I - INSECTOS RASTREROS / VOLADORES</h2>
+      <div class="mb-4">
+        <label class="flex items-center">
+          Inspección en el establecimiento
+          <button class="border border-border rounded p-1 ml-2">Int.</button>
+          <button class="border border-border rounded p-1 ml-2">Ext.</button>
+          <input type="checkbox" class="ml-2" />
+        </label>
+        <label class="flex items-center">
+          Termonebulización
+          <button class="border border-border rounded p-1 ml-2">Int.</button>
+          <button class="border border-border rounded p-1 ml-2">Ext.</button>
+          <input type="checkbox" class="ml-2" />
+        </label>
+        <label class="flex items-center">
+          Aplicación de Feromona
+          <button class="border border-border rounded p-1 ml-2">Int.</button>
+          <button class="border border-border rounded p-1 ml-2">Ext.</button>
+          <input type="checkbox" class="ml-2" />
+        </label>
+        <label class="flex items-center">
+          Aspersión
+          <button class="border border-border rounded p-1 ml-2">Int.</button>
+          <button class="border border-border rounded p-1 ml-2">Ext.</button>
+          <input type="checkbox" class="ml-2" />
+        </label>
+        <label class="flex items-center">
+          Nebulización
+          <button class="border border-border rounded p-1 ml-2">Int.</button>
+          <button class="border border-border rounded p-1 ml-2">Ext.</button>
+          <input type="checkbox" class="ml-2" />
+        </label>
+        <label class="block text-muted-foreground">Otras aplicaciones:</label>
+        <textarea class="border border-border rounded p-2 w-full" rows="3"></textarea>
+      </div>
+      <h2 class="text-xl font-bold text-primary mt-6">II - ROEDORES</h2>
+      <div class="mb-4">
+        <label class="flex items-center"> Inspección y limpieza de trampas </label>
+        <label class="flex items-center">
+          Hallazgo de actividad de roedor
+          <span class="ml-2">SI</span>
+          <input type="checkbox" class="mr-2" />
+          <span class="ml-2">NO</span>
+          Trampas: <input type="text" class="border border-border rounded p-1 ml-2" />
+        </label>
+        <label class="block text-muted-foreground">Otros procedimientos:</label>
+        <textarea class="border border-border rounded p-2 w-full" rows="3"></textarea>
+      </div>
+      <h2 class="text-xl font-bold text-primary mt-6">III - RECOMENDACIONES</h2>
+      <textarea class="border border-border rounded p-2 w-full" rows="3"></textarea>
+      <div class="mt-6">
+        <label class="block text-muted-foreground">FIRMA DEL CLIENTE / Encargado</label>
+        <input type="text" class="border border-border rounded p-2 w-full" />
+      </div>
+
+      <div class="mt-4">
+        <label class="block text-muted-foreground">ESPECIALISTA DE SERVICIOS</label>
+        <input type="text" class="border border-border rounded p-2 w-full" />
+      </div>
+    </div>
+  </body>
+</html>
