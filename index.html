@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Servicio - FumiGO</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -153,6 +152,38 @@
             text-align: center;
             width: 45%;
         }
+
+        .checkbox-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-column {
+            width: 48%;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-column h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-column label {
+            display: block;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
     </style>
 </head>
 <body>
@@ -276,16 +307,31 @@
         <section class="insects">
             <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
             <div class="checkbox-group">
-                <label><input type="checkbox"> Inspección en el establecimiento (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Termonebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aplicación de Feromona (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aspersión (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Nebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
+                <div class="checkbox-column">
+                    <h3>Inspección en el establecimiento</h3>
+                    <label><input type="checkbox"> Int.</label>
+                    <label><input type="checkbox"> Ext.</label>
+                </div>
+                <div class="checkbox-column">
+                    <h3>Termonebulización</h3>
+                    <label><input type="checkbox"> Int.</label>
+                    <label><input type="checkbox"> Ext.</label>
+                </div>
+                <div class="checkbox-column">
+                    <h3>Aplicación de Feromona</h3>
+                    <label><input type="checkbox"> Int.</label>
+                    <label><input type="checkbox"> Ext.</label>
+                </div>
+                <div class="checkbox-column">
+                    <h3>Aspersión</h3>
+                    <label><input type="checkbox"> Int.</label>
+                    <label><input type="checkbox"> Ext.</label>
+                </div>
+                <div class="checkbox-column">
+                    <h3>Nebulización</h3>
+                    <label><input type="checkbox"> Int.</label>
+                    <label><input type="checkbox"> Ext.</label>
+                </div>
             </div>
             <p>Otras aplicaciones:</p>
             <textarea rows="3"></textarea>
@@ -322,70 +368,22 @@
                 <div>
                     <p>__________________________</p>
                     <p>FIRMA DEL CLIENTE / Encargado</p>
+                    <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+                    <button onclick="clearCanvas('firmaCliente')">Borrar Firma Cliente</button>
+                    <button onclick="saveSignature('firmaCliente')">Guardar Firma Cliente</button>
                 </div>
                 <div>
                     <p>__________________________</p>
-                    <p>FIRMA DEL ESPECIALISTA</p>
+                    <p>ESPECIALISTA DE SERVICIOS</p>
+                    <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+                    <button onclick="clearCanvas('firmaEspecialista')">Borrar Firma Especialista</button>
+                    <button onclick="saveSignature('firmaEspecialista')">Guardar Firma Especialista</button>
                 </div>
             </div>
         </footer>
     </div>
-
     <script>
-        // Función para limpiar el canvas de la firma
-        function clearCanvas(canvasId) {
-            var canvas = document.getElementById(canvasId);
-            var context = canvas.getContext("2d");
-            context.clearRect(0, 0, canvas.width, canvas.height);
-        }
-
-        // Función para guardar la firma como una imagen
-        function saveSignature(canvasId) {
-            var canvas = document.getElementById(canvasId);
-            var dataURL = canvas.toDataURL("image/png");
-
-            // Aquí puedes hacer lo que quieras con la imagen, por ejemplo, enviarla al servidor o guardarla localmente
-            console.log(dataURL); // Solo para demostración
-
-            // Mostrar la imagen en la página (opcional)
-            var imgElement = document.createElement('img');
-            imgElement.src = dataURL;
-            document.body.appendChild(imgElement); // Puedes elegir dónde agregar la imagen
-        }
-
-        // Función para dibujar en el canvas (firma)
-        function initCanvas(canvasId) {
-            var canvas = document.getElementById(canvasId);
-            var context = canvas.getContext("2d");
-            var drawing = false;
-
-            canvas.addEventListener('mousedown', function (e) {
-                drawing = true;
-                context.beginPath();
-                context.moveTo(e.offsetX, e.offsetY);
-            });
-
-            canvas.addEventListener('mousemove', function (e) {
-                if (drawing) {
-                    context.lineTo(e.offsetX, e.offsetY);
-                    context.stroke();
-                }
-            });
-
-            canvas.addEventListener('mouseup', function () {
-                drawing = false;
-            });
-
-            canvas.addEventListener('mouseout', function () {
-                drawing = false;
-            });
-        }
-
-        // Iniciar los canvas para firma
-        window.onload = function() {
-            initCanvas('firmaCliente');
-            initCanvas('firmaEspecialista');
-        };
+        // Aquí iría tu script para las firmas
     </script>
 </body>
 </html>
