@@ -70,21 +70,22 @@
             font-size: 14px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
         table, th, td {
-            border: 1px solid #ccc;
-        }
+    border: 1px solid #ccc;
+    padding: 5px;  /* Reduce el padding */
+    font-size: 10px;  /* Hace la fuente más pequeña */
+    text-align: center;
+}
 
-        th, td {
-            padding: 5px;
-            text-align: center;
-            font-size: 12px;
-        }
+th, td {
+    width: 20%;  /* Asigna un ancho igual para cada columna */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
 
         textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
             width: 100%;
