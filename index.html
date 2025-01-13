@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Servicio - FumiGO</title>
     <style>
+        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
@@ -54,12 +55,12 @@
             flex-direction: column;
         }
 
-        .header-info label {
+        label {
             margin-bottom: 5px;
             font-weight: bold;
         }
 
-        input[type="text"], input[type="date"], input[type="number"], input[type="time"], textarea {
+        input, textarea {
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
@@ -68,7 +69,7 @@
             font-size: 14px;
         }
 
-        input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, input[type="time"]:focus, textarea:focus {
+        input:focus, textarea:focus {
             border-color: #00509E;
             outline: none;
         }
@@ -96,10 +97,6 @@
             border: 1px solid #ccc;
         }
 
-        .service-time .block {
-            background-color: #e0e0e0;
-        }
-
         .table-responsive {
             overflow-x: auto;
             margin-bottom: 20px;
@@ -120,35 +117,6 @@
         th {
             background-color: #003366;
             color: white;
-        }
-
-        @media (max-width: 768px) {
-            .header-info {
-                grid-template-columns: 1fr;
-            }
-
-            .block {
-                padding: 15px;
-            }
-
-            h4 {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    color: #333;
-}
-
-            button {
-                width: auto;
-                padding: 10px 15px;
-            }
-
-            .table-responsive table {
-                font-size: 14px;
-            }
-
-            .service-time .block {
-                background-color: #f4f4f4;
-            }
         }
 
         .signatures {
@@ -173,29 +141,6 @@
         .footer-info p {
             margin-bottom: 5px;
         }
-
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .checkbox-column h3 {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .checkbox-column label {
-            display: block;
-            margin: 5px 0;
-            font-size: 13px;
-        }
-
-        textarea {
-            height: 100px;
-        }
-
     </style>
 </head>
 <body>
@@ -204,225 +149,69 @@
             <h1>REPORTE DE SERVICIO</h1>
         </header>
 
-        <section class="header-info">
-            <div>
-                <label for="cliente"><strong>NOMBRE DEL CLIENTE:</strong></label>
-                <input type="text" id="cliente" required>
-            </div>
-            <div>
-                <label for="fecha-servicio"><strong>FECHA DE SERVICIO:</strong></label>
-                <input type="date" id="fecha-servicio" required>
-            </div>
-            <div class="logo">
-                <img src="" alt="">
-            </div>
-        </section>
-
-        <section class="service-time">
-            <div class="block">
-                <h3>HORA DE SERVICIO</h3>
-                <div class="next-visit">
-                    <h4>PRÓXIMA VISITA</h4>
-                    <label for="proxima-dia">DÍA: </label><input type="text" id="proxima-dia">
-                    <label for="proxima-fecha">FECHA: </label><input type="date" id="proxima-fecha">
-                    <label for="proxima-hora">HORA: </label><input type="time" id="proxima-hora">
+        <form action="https://formspree.io/f/YOUR_ENDPOINT" method="POST">
+            <section class="header-info">
+                <div>
+                    <label for="cliente">Nombre del cliente:</label>
+                    <input type="text" id="cliente" name="cliente" required>
                 </div>
-            </div>
+                <div>
+                    <label for="fecha-servicio">Fecha de servicio:</label>
+                    <input type="date" id="fecha-servicio" name="fechaServicio" required>
+                </div>
+                <div>
+                    <label for="logo">Logo:</label>
+                    <input type="text" id="logo" name="logo" placeholder="URL del logo (opcional)">
+                </div>
+            </section>
 
-            <div class="block">
-                <h3>CANTIDAD DE DISPOSITIVOS Y CONSUMO</h3>
+            <section class="block">
+                <h3>Próxima visita</h3>
+                <label for="proxima-dia">Día:</label>
+                <input type="text" id="proxima-dia" name="proximaDia">
+                <label for="proxima-fecha">Fecha:</label>
+                <input type="date" id="proxima-fecha" name="proximaFecha">
+                <label for="proxima-hora">Hora:</label>
+                <input type="time" id="proxima-hora" name="proximaHora">
+            </section>
+
+            <section class="block">
+                <h3>Plaga señalada y detalles</h3>
                 <div class="table-responsive">
                     <table>
                         <thead>
                             <tr>
-                                <th>Dispositivo</th>
+                                <th>Plaga señalada</th>
+                                <th>% de pesticida usado</th>
                                 <th>Cantidad</th>
-                                <th>Consumo</th>
+                                <th>Método de aplicación</th>
+                                <th>Lugar</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Ext.</td>
-                                <td><input type="number"></td>
-                                <td><input type="number"></td>
-                            </tr>
-                            <tr>
-                                <td>Int.</td>
-                                <td><input type="number"></td>
-                                <td><input type="number"></td>
-                            </tr>
-                            <tr>
-                                <td>Uv.</td>
-                                <td><input type="number"></td>
-                                <td><input type="number"></td>
-                            </tr>
-                            <tr>
-                                <td>Disp. Dañado</td>
-                                <td><input type="number"></td>
-                                <td><input type="number"></td>
+                                <td><input type="text" name="plaga1"></td>
+                                <td><input type="number" name="pesticida1"></td>
+                                <td><input type="number" name="cantidad1"></td>
+                                <td><input type="text" name="metodo1"></td>
+                                <td><input type="text" name="lugar1"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
 
-            <section class="plaga">
-    <h2>IV. PLAGA SEÑALADA Y DETALLES</h2>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>PLAGA SEÑALADA</th>
-                    <th>% DE PESTICIDA USADO</th>
-                    <th>CANTIDAD</th>
-                    <th>MÉTODO DE APLICACIÓN</th>
-                    <th>LUGAR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="text" name="plaga1" placeholder="Plaga 1"></td>
-                    <td><input type="number" name="pesticida1" placeholder="% Pesticida 1"></td>
-                    <td><input type="number" name="cantidad1" placeholder="Cantidad 1"></td>
-                    <td><input type="text" name="metodo-aplicacion1" placeholder="Método Aplicación 1"></td>
-                    <td><input type="text" name="lugar1" placeholder="Lugar 1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="plaga2" placeholder="Plaga 2"></td>
-                    <td><input type="number" name="pesticida2" placeholder="% Pesticida 2"></td>
-                    <td><input type="number" name="cantidad2" placeholder="Cantidad 2"></td>
-                    <td><input type="text" name="metodo-aplicacion2" placeholder="Método Aplicación 2"></td>
-                    <td><input type="text" name="lugar2" placeholder="Lugar 2"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="plaga3" placeholder="Plaga 3"></td>
-                    <td><input type="number" name="pesticida3" placeholder="% Pesticida 3"></td>
-                    <td><input type="number" name="cantidad3" placeholder="Cantidad 3"></td>
-                    <td><input type="text" name="metodo-aplicacion3" placeholder="Método Aplicación 3"></td>
-                    <td><input type="text" name="lugar3" placeholder="Lugar 3"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="plaga4" placeholder="Plaga 4"></td>
-                    <td><input type="number" name="pesticida4" placeholder="% Pesticida 4"></td>
-                    <td><input type="number" name="cantidad4" placeholder="Cantidad 4"></td>
-                    <td><input type="text" name="metodo-aplicacion4" placeholder="Método Aplicación 4"></td>
-                    <td><input type="text" name="lugar4" placeholder="Lugar 4"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="plaga5" placeholder="Plaga 5"></td>
-                    <td><input type="number" name="pesticida5" placeholder="% Pesticida 5"></td>
-                    <td><input type="number" name="cantidad5" placeholder="Cantidad 5"></td>
-                    <td><input type="text" name="metodo-aplicacion5" placeholder="Método Aplicación 5"></td>
-                    <td><input type="text" name="lugar5" placeholder="Lugar 5"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+            <section class="signatures">
+                <div>
+                    <p><strong>Firma del cliente</strong></p>
+                </div>
+                <div>
+                    <p><strong>Firma del técnico</strong></p>
+                </div>
+            </section>
 
-        </section>
-
-        <section class="insects">
-    <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
-    
-    <!-- Inspección en el establecimiento -->
-    <div class="checkbox-group">
-        <div class="checkbox-column">
-            <h3>Inspección en el establecimiento</h3>
-            <label><input type="checkbox" name="inspeccion-establecimiento-int"> Int.</label>
-            <label><input type="checkbox" name="inspeccion-establecimiento-ext"> Ext.</label>
-        </div>
-        
-        <!-- Aplicación de Feromona -->
-        <div class="checkbox-column">
-            <h3>Aplicación de Feromona</h3>
-            <label><input type="checkbox" name="aplicacion-feromona-int"> Int.</label>
-            <label><input type="checkbox" name="aplicacion-feromona-ext"> Ext.</label>
-        </div>
-        
-        <!-- Aspersión -->
-        <div class="checkbox-column">
-            <h3>Aspersión</h3>
-            <label><input type="checkbox" name="aspersión-int"> Int.</label>
-            <label><input type="checkbox" name="aspersión-ext"> Ext.</label>
-        </div>
-        
-        <!-- Nebulización -->
-        <div class="checkbox-column">
-            <h3>Nebulización</h3>
-            <label><input type="checkbox" name="nebulizacion-int"> Int.</label>
-            <label><input type="checkbox" name="nebulizacion-ext"> Ext.</label>
-        </div>
-    </div>
-
-    <!-- Otras aplicaciones -->
-    <p>Otras aplicaciones:</p>
-    <textarea name="otras-aplicaciones" rows="3" placeholder="Describa otras aplicaciones realizadas"></textarea>
-</section>
-
-        <section class="rodents">
-    <h2>II - ROEDORES</h2>
-    
-    <!-- Inspección y limpieza de trampas -->
-    <div class="block">
-        <label><input type="checkbox" name="inspeccion-trampas"> Inspección y limpieza de trampas</label>
-    </div>
-    
-    <!-- Hallazgo de actividad de roedor -->
-    <div class="block">
-        <p>Hallazgo de actividad de roedor:</p>
-        <label><input type="radio" name="roedor-actividad" value="si" required> Sí</label>
-        <label><input type="radio" name="roedor-actividad" value="no"> No</label>
-        <div class="trampas-detalle" style="display: none;">
-            <label for="trampas">Trampas encontradas:</label>
-            <input type="number" id="trampas" name="trampas" placeholder="Cantidad de trampas encontradas">
-        </div>
-    </div>
-    
-    <!-- Colocación de cebo preventivo -->
-    <div class="block">
-        <label><input type="checkbox" name="colocacion-cebo"> Colocación de cebo preventivo</label>
-    </div>
-    
-    <!-- Otros procedimientos -->
-    <div class="block">
-        <p>Otros procedimientos:</p>
-        <textarea name="otros-procedimientos" placeholder="Describa otros procedimientos aplicados"></textarea>
-    </div>   
-
-</section>
-
-         <section class="recommendations">
-    <h2>III. RECOMENDACIONES</h2>
-    <div class="block">
-        <textarea rows="4" placeholder="Escriba las recomendaciones aquí..."></textarea>
-    </div>
-</section>
-
-<script>
-    // Mostrar campo de trampas si la actividad de roedor es detectada
-    document.querySelectorAll('input[name="roedor-actividad"]').forEach((radio) => {
-        radio.addEventListener('change', function() {
-            const trampasDetalle = document.querySelector('.trampas-detalle');
-            if (this.value === 'si') {
-                trampasDetalle.style.display = 'block';
-            } else {
-                trampasDetalle.style.display = 'none';
-            }
-        });
-    });
-</script>
-
-        <section class="signatures">
-            <div>
-                <p><strong>Firma del cliente</strong></p>
-                <p>(Firma de aceptación)</p>
-            </div>
-            <div>
-                <p><strong>Firma del técnico</strong></p>
-                <p>(Firma de realización del servicio)</p>
-            </div>
-        </section>
+            <button type="submit">Enviar</button>
+        </form>
 
         <section class="footer-info">
             <p>© 2025 FumiGO. Todos los derechos reservados.</p>
