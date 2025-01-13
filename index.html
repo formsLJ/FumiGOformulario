@@ -318,17 +318,57 @@
     </div>
 </section>
         <section class="rodents">
-            <h2>II - ROEDORES</h2>
-            <div class="block">
-                <label><input type="checkbox"> Inspección y limpieza de trampas</label>
-            </div>
-            <div class="block">
-                <p>Hallazgo de actividad de roedor:</p>
-                <label><input type="radio" name="roedor"> Fecales</label>
-                <label><input type="radio" name="roedor"> Cápsulas</label>
-                <label><input type="radio" name="roedor"> Otros</label>
-            </div>
-        </section>
+    <h2>II - ROEDORES</h2>
+    
+    <!-- Inspección y limpieza de trampas -->
+    <div class="block">
+        <label><input type="checkbox" name="inspeccion-trampas"> Inspección y limpieza de trampas</label>
+    </div>
+    
+    <!-- Hallazgo de actividad de roedor -->
+    <div class="block">
+        <p>Hallazgo de actividad de roedor:</p>
+        <label><input type="radio" name="roedor-actividad" value="si" required> Sí</label>
+        <label><input type="radio" name="roedor-actividad" value="no"> No</label>
+        <div class="trampas-detalle" style="display: none;">
+            <label for="trampas">Trampas encontradas:</label>
+            <input type="number" id="trampas" name="trampas" placeholder="Cantidad de trampas encontradas">
+        </div>
+    </div>
+    
+    <!-- Colocación de cebo preventivo -->
+    <div class="block">
+        <label><input type="checkbox" name="colocacion-cebo"> Colocación de cebo preventivo</label>
+    </div>
+    
+    <!-- Otros procedimientos -->
+    <div class="block">
+        <p>Otros procedimientos:</p>
+        <textarea name="otros-procedimientos" placeholder="Describa otros procedimientos aplicados"></textarea>
+    </div>
+
+    <!-- Tipo de cebo utilizado -->
+    <div class="block">
+        <p><strong>Tipo de cebo utilizado:</strong></p>
+        <label><input type="radio" name="tipo-cebo" value="fecales"> Fecales</label>
+        <label><input type="radio" name="tipo-cebo" value="capsulas"> Cápsulas</label>
+        <label><input type="radio" name="tipo-cebo" value="otros"> Otros</label>
+    </div>
+</section>
+
+<script>
+    // Mostrar campo de trampas si la actividad de roedor es detectada
+    document.querySelectorAll('input[name="roedor-actividad"]').forEach((radio) => {
+        radio.addEventListener('change', function() {
+            const trampasDetalle = document.querySelector('.trampas-detalle');
+            if (this.value === 'si') {
+                trampasDetalle.style.display = 'block';
+            } else {
+                trampasDetalle.style.display = 'none';
+            }
+        });
+    });
+</script>
 
         <section class="signatures">
             <div>
