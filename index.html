@@ -1,113 +1,216 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reporte de Servicio</title>
-  </head>
-  <body class="bg-background text-foreground">
-    <div class="p-6 bg-background rounded-lg shadow-md">
-      <h1 class="text-2xl font-bold text-primary mb-4">REPORTE DE SERVICIO</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Servicio - FumiGO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-      <div class="grid grid-cols-2 gap-4 mb-4">
-        <div>
-          <label class="block text-muted-foreground">NOMBRE DEL CLIENTE</label>
-          <input type="text" class="border border-border rounded p-2 w-full" />
-        </div>
-        <div>
-          <label class="block text-muted-foreground">FECHA DE SERVICIO</label>
-          <input type="date" class="border border-border rounded p-2 w-full" />
-        </div>
-      </div>
-      <div class="grid grid-cols-3 gap-4 mb-4">
-        <div>
-          <label class="block text-muted-foreground">HORA DE SERVICIO</label>
-          <input type="time" class="border border-border rounded p-2 w-full" />
-        </div>
-        <div>
-          <label class="block text-muted-foreground">DÍA</label>
-          <input type="text" class="border border-border rounded p-2 w-full" />
-        </div>
-        <div>
-          <label class="block text-muted-foreground">HORA</label>
-          <input type="text" class="border border-border rounded p-2 w-full" />
-        </div>
-      </div>
-      <div class="grid grid-cols-3 gap-4 mb-4">
-        <div>
-          <label class="block text-muted-foreground">CANTIDAD DE DISPOSITIVO</label>
-          <input type="text" class="border border-border rounded p-2 w-full" placeholder="Ext." />
-          <input type="text" class="border border-border rounded p-2 w-full" placeholder="Int." />
-        </div>
-        <div>
-          <label class="block text-muted-foreground">CANTIDAD DE CONSUMO</label>
-          <input type="text" class="border border-border rounded p-2 w-full" placeholder="Uv." />
-        </div>
-        <div>
-          <label class="block text-muted-foreground">PLAGA SEÑALADA</label>
-          <input type="text" class="border border-border rounded p-2 w-full" />
-        </div>
-      </div>
-      <h2 class="text-xl font-bold text-primary mt-6">I - INSECTOS RASTREROS / VOLADORES</h2>
-      <div class="mb-4">
-        <label class="flex items-center">
-          Inspección en el establecimiento
-          <button class="border border-border rounded p-1 ml-2">Int.</button>
-          <button class="border border-border rounded p-1 ml-2">Ext.</button>
-          <input type="checkbox" class="ml-2" />
-        </label>
-        <label class="flex items-center">
-          Termonebulización
-          <button class="border border-border rounded p-1 ml-2">Int.</button>
-          <button class="border border-border rounded p-1 ml-2">Ext.</button>
-          <input type="checkbox" class="ml-2" />
-        </label>
-        <label class="flex items-center">
-          Aplicación de Feromona
-          <button class="border border-border rounded p-1 ml-2">Int.</button>
-          <button class="border border-border rounded p-1 ml-2">Ext.</button>
-          <input type="checkbox" class="ml-2" />
-        </label>
-        <label class="flex items-center">
-          Aspersión
-          <button class="border border-border rounded p-1 ml-2">Int.</button>
-          <button class="border border-border rounded p-1 ml-2">Ext.</button>
-          <input type="checkbox" class="ml-2" />
-        </label>
-        <label class="flex items-center">
-          Nebulización
-          <button class="border border-border rounded p-1 ml-2">Int.</button>
-          <button class="border border-border rounded p-1 ml-2">Ext.</button>
-          <input type="checkbox" class="ml-2" />
-        </label>
-        <label class="block text-muted-foreground">Otras aplicaciones:</label>
-        <textarea class="border border-border rounded p-2 w-full" rows="3"></textarea>
-      </div>
-      <h2 class="text-xl font-bold text-primary mt-6">II - ROEDORES</h2>
-      <div class="mb-4">
-        <label class="flex items-center"> Inspección y limpieza de trampas </label>
-        <label class="flex items-center">
-          Hallazgo de actividad de roedor
-          <span class="ml-2">SI</span>
-          <input type="checkbox" class="mr-2" />
-          <span class="ml-2">NO</span>
-          Trampas: <input type="text" class="border border-border rounded p-1 ml-2" />
-        </label>
-        <label class="block text-muted-foreground">Otros procedimientos:</label>
-        <textarea class="border border-border rounded p-2 w-full" rows="3"></textarea>
-      </div>
-      <h2 class="text-xl font-bold text-primary mt-6">III - RECOMENDACIONES</h2>
-      <textarea class="border border-border rounded p-2 w-full" rows="3"></textarea>
-      <div class="mt-6">
-        <label class="block text-muted-foreground">FIRMA DEL CLIENTE / Encargado</label>
-        <input type="text" class="border border-border rounded p-2 w-full" />
-      </div>
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
 
-      <div class="mt-4">
-        <label class="block text-muted-foreground">ESPECIALISTA DE SERVICIOS</label>
-        <input type="text" class="border border-border rounded p-2 w-full" />
-      </div>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            background-color: #003366;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .header-info div {
+            width: 48%;
+        }
+
+        .service-time, .insects, .rodents, .recommendations {
+            margin-top: 20px;
+        }
+
+        h2 {
+            background-color: #003366;
+            color: #fff;
+            padding: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00509E;
+        }
+
+        footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .signatures div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>REPORTE DE SERVICIO</h1>
+            <div class="header-info">
+                <div>
+                    <strong>NOMBRE DEL CLIENTE:</strong> <input type="text">
+                </div>
+                <div>
+                    <strong>FECHA DE SERVICIO:</strong> <input type="date">
+                </div>
+            </div>
+        </header>
+
+        <section class="service-time">
+            <h2>HORA DE SERVICIO</h2>
+            <div class="next-visit">
+                <button>PRÓXIMA VISITA</button>
+                <label>DÍA: <input type="text"></label>
+                <label>FECHA: <input type="date"></label>
+                <label>HORA: <input type="time"></label>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cantidad de Dispositivo</th>
+                        <th>Cantidad de Consumo</th>
+                        <th>PLAGA SEÑALADA</th>
+                        <th>% DE PESTICIDA USADO</th>
+                        <th>CANTIDAD</th>
+                        <th>MÉTODO DE APLICACIÓN</th>
+                        <th>LUGAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ext.: <input type="number"></td>
+                        <td><input type="number"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="number"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="insects">
+            <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
+            <div class="checkbox-group">
+                <label><input type="checkbox"> Inspección en el establecimiento (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Termonebulización (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Aplicación de Feromona (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Aspersión (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+                <label><input type="checkbox"> Nebulización (Int.)</label>
+                <label><input type="checkbox"> (Ext.)</label>
+            </div>
+            <p>Otras aplicaciones:</p>
+            <textarea rows="3"></textarea>
+        </section>
+
+        <section class="rodents">
+            <h2>II - ROEDORES</h2>
+            <label><input type="checkbox"> Inspección y limpieza de trampas</label>
+            <div>
+                <p>Hallazgo de actividad de roedor:</p>
+                <label><input type="radio" name="roedor"> SI</label>
+                <label><input type="radio" name="roedor"> NO</label>
+                <label>Trampas: <input type="text"></label>
+            </div>
+            <label><input type="checkbox"> Colocación de cebo preventivo</label>
+            <p>Otros procedimientos:</p>
+            <textarea rows="3"></textarea>
+        </section>
+
+        <section class="recommendations">
+            <h2>III - RECOMENDACIONES</h2>
+            <textarea rows="4"></textarea>
+        </section>
+
+        <footer>
+            <div class="footer-info">
+                <p><strong>FUMIGO</strong> - LA EXCELENCIA EN EL CONTROL DE PLAGAS</p>
+                <p>RUC N°: 0012093630027M</p>
+                <p>TELÉFONOS: 7752 4441 / 8820 8016</p>
+                <p>DIRECCIÓN: COLONIA DEL PERIODISTA, CASA 216</p>
+                <p>FACEBOOK: FumiGO</p>
+            </div>
+            <div class="signatures">
+                <div>
+                    <p>__________________________</p>
+                    <p>FIRMA DEL CLIENTE / Encargado</p>
+                </div>
+                <div>
+                    <p>__________________________</p>
+                    <p>ESPECIALISTA DE SERVICIOS</p>
+                </div>
+            </div>
+        </footer>
     </div>
-  </body>
+</body>
 </html>
+
