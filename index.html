@@ -430,23 +430,24 @@
         </form>
          <script>
        document.getElementById("downloadBtn").addEventListener("click", function () {
-    const element = document.getElementById("formContent"); // Selecciona el contenedor del formulario
+    const element = document.getElementById("formContent"); // Elemento a capturar
 
-    // Opciones de configuración para html2pdf
+    // Opciones para generar el PDF
     const options = {
-        margin: 10,
+        margin: [10, 10, 10, 10], // Márgenes del documento
         filename: 'reporte_servicio.pdf',
         html2canvas: {
-            scale: 2, // Mayor calidad de renderizado
+            scale: 1, // Ajusta la escala para evitar que el contenido se agrande demasiado
             scrollX: 0,
             scrollY: 0,
+            useCORS: true, // Permite cargar recursos externos como imágenes
         },
         jsPDF: {
-            unit: 'px',
+            unit: 'mm', // Unidad en milímetros para A4
             format: 'a4', // Formato estándar A4
             orientation: 'portrait', // Orientación vertical
         },
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }, // Evitar cortes en contenido importante
+        pagebreak: { mode: ['avoid-all', 'css'] }, // Manejo de saltos de página
     };
 
     // Genera el PDF
