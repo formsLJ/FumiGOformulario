@@ -4,35 +4,49 @@ function initCanvas(canvasId) {
     var ctx = canvas.getContext("2d");
     var painting = false;
 
-    // Inicia el dibujo cuando se hace clic en el lienzo
+    // Inicia el dibujo cuando se hace clic o se toca el lienzo
     function startPosition(e) {
         painting = true;
         draw(e);
     }
 
-    // Detiene el dibujo cuando se deja de hacer clic
+    // Detiene el dibujo cuando se deja de hacer clic o se levanta el dedo
     function endPosition() {
         painting = false;
         ctx.beginPath(); // Reinicia el trazo para no continuar de donde se dejó
     }
 
-    // Dibuja en el lienzo mientras se mueve el ratón
+    // Dibuja en el lienzo mientras se mueve el ratón o el dedo
     function draw(e) {
         if (!painting) return;
+
+        var posX, posY;
+        if (e.type.startsWith('touch')) {
+            posX = e.touches[0].clientX - canvas.offsetLeft;
+            posY = e.touches[0].clientY - canvas.offsetTop;
+        } else {
+            posX = e.clientX - canvas.offsetLeft;
+            posY = e.clientY - canvas.offsetTop;
+        }
+
         ctx.lineWidth = 2;  // Grosor de la línea de la firma
         ctx.lineCap = "round"; // Redondea el final de las líneas
         ctx.strokeStyle = "#000"; // Color de la firma
 
-        ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);  // Calcula la posición relativa
+        ctx.lineTo(posX, posY);  // Calcula la posición relativa
         ctx.stroke();  // Dibuja la línea
         ctx.beginPath(); // Reinicia el trazo
-        ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop); // Mantiene la posición del ratón
+        ctx.moveTo(posX, posY); // Mantiene la posición del ratón o dedo
     }
 
-    // Agrega los eventos de mouse para dibujar
+    // Agrega los eventos de mouse y tactiles para dibujar
     canvas.addEventListener("mousedown", startPosition);
     canvas.addEventListener("mouseup", endPosition);
     canvas.addEventListener("mousemove", draw);
+
+    canvas.addEventListener("touchstart", startPosition);
+    canvas.addEventListener("touchend", endPosition);
+    canvas.addEventListener("touchmove", draw);
 }
 
 // Función para borrar el contenido del lienzo
