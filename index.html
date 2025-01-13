@@ -418,22 +418,31 @@
 </div>
         </form>
          <script>
-        document.getElementById("downloadBtn").addEventListener("click", function() {
-            // Obtener el contenido del formulario
-            const formContent = document.getElementById("formContent");
+        document.getElementById("downloadBtn").addEventListener("click", function () {
+    // Selecciona el elemento que quieres capturar
+    const element = document.body; // Para capturar toda la página
+    // o usa un contenedor específico
+    // const element = document.getElementById("formContent");
 
-            // Configurar las opciones para la conversión a PDF
-            const options = {
-    filename: 'reporte_servicio.pdf',
-    html2canvas: { scale: 4 },
-    jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' } // Usar A3 en vez de A4
-};
-            // Generar el PDF con el contenido del formulario
-            html2pdf().from(formContent).set(options).save().then(() => {
-                // Después de que el PDF se haya descargado, enviar el formulario
-                document.getElementById("myForm").submit();
-            });
-        });
+    // Opciones para la generación del PDF
+    const options = {
+        filename: 'pagina_completa.pdf',
+        margin: [10, 10, 10, 10], // Opcional: márgenes en milímetros
+        html2canvas: {
+            scale: 2, // Resolución más alta
+            scrollX: 0, // Captura sin desplazamiento horizontal
+            scrollY: 0, // Captura sin desplazamiento vertical
+        },
+        jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait', // Vertical ('portrait') u horizontal ('landscape')
+        }
+    };
+
+    // Genera el PDF
+    html2pdf().set(options).from(element).save();
+});
     </script>
 
     <script>
