@@ -55,52 +55,96 @@
             height: auto;
         }
 
-        .service-time, .insects, .rodents, .recommendations {
+        .service-section {
+            display: flex;
+            border: 1px solid #003366;
             margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
         .service-time {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
+            width: 30%;
+            border-right: 1px solid #003366;
+            padding: 10px;
         }
 
-        .service-time .block {
-            width: 32%;
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-bottom: 20px; /* To ensure space between blocks */
-        }
-
-        .service-time .block h3 {
-            background-color: #003366;
-            color: #fff;
-            padding: 8px;
+        .service-time h3 {
             text-align: center;
+            color: #003366;
+            font-size: 14px;
             margin-bottom: 10px;
         }
 
-        table {
+        .service-time button {
+            display: block;
+            width: 100%;
+            background-color: #003366;
+            color: white;
+            padding: 5px;
+            border: none;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .service-time label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .service-time input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .quantity-consumption {
+            width: 40%;
+            border-right: 1px solid #003366;
+            padding: 10px;
+        }
+
+        .quantity-consumption table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            font-size: 12px;
         }
 
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-
-        th, td {
-            padding: 8px;
+        .quantity-consumption th,
+        .quantity-consumption td {
+            border: 1px solid #003366;
+            padding: 5px;
             text-align: center;
         }
 
-        .checkbox-group label {
-            display: block;
-            margin: 5px 0;
+        .quantity-consumption th {
+            background-color: #003366;
+            color: white;
+        }
+
+        .pest-details {
+            width: 30%;
+            padding: 10px;
+        }
+
+        .pest-details table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .pest-details th,
+        .pest-details td {
+            border: 1px solid #003366;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .pest-details th {
+            background-color: #003366;
+            color: white;
         }
 
         textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
@@ -109,18 +153,6 @@
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
-        }
-
-        button {
-            background-color: #003366;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #00509E;
         }
 
         footer {
@@ -135,21 +167,6 @@
 
         .signatures div {
             text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .header-info {
-                flex-direction: column;
-            }
-
-            .header-info div {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .service-time .block {
-                width: 100%;
-            }
         }
 
         @media print {
@@ -176,22 +193,24 @@
                     <strong>FECHA DE SERVICIO:</strong> <input type="date" required>
                 </div>
                 <div class="logo">
-                    <img src="logo.png" alt="Logotipo de FumiGO">
+                    <img src="logos fumiGO OUT.png" alt="Logotipo de FumiGO">
                 </div>
             </div>
         </header>
 
-        <section class="service-time">
-            <div class="block">
+        <section class="service-section">
+            <div class="service-time">
                 <h3>HORA DE SERVICIO</h3>
-                <div class="next-visit">
-                    <button>PRÓXIMA VISITA</button>
-                    <label>DÍA: <input type="text"></label>
-                    <label>FECHA: <input type="date"></label>
-                    <label>HORA: <input type="time"></label>
-                </div>
+                <button>PRÓXIMA VISITA</button>
+                <label>DÍA:</label>
+                <input type="text">
+                <label>FECHA:</label>
+                <input type="date">
+                <label>HORA:</label>
+                <input type="time">
             </div>
-            <div class="block">
+
+            <div class="quantity-consumption">
                 <h3>CANTIDAD DE DISPOSITIVOS Y CONSUMO</h3>
                 <table>
                     <thead>
@@ -202,13 +221,28 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>Ext.</td>
                             <td><input type="number" required></td>
+                        </tr>
+                        <tr>
+                            <td>Int.</td>
+                            <td><input type="number" required></td>
+                        </tr>
+                        <tr>
+                            <td>Uv.</td>
+                            <td><input type="number" required></td>
+                        </tr>
+                        <tr>
+                            <td>Disp. Dañado</td>
                             <td><input type="number" required></td>
                         </tr>
                     </tbody>
                 </table>
+                <label>Actividad:</label>
+                <input type="text">
             </div>
-            <div class="block">
+
+            <div class="pest-details">
                 <h3>PLAGA SEÑALADA Y DETALLES</h3>
                 <table>
                     <thead>
@@ -231,43 +265,6 @@
                     </tbody>
                 </table>
             </div>
-        </section>
-
-        <section class="insects">
-            <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
-            <div class="checkbox-group">
-                <label><input type="checkbox"> Inspección en el establecimiento (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Termonebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aplicación de Feromona (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aspersión (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Nebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-            </div>
-            <p>Otras aplicaciones:</p>
-            <textarea rows="3"></textarea>
-        </section>
-
-        <section class="rodents">
-            <h2>II - ROEDORES</h2>
-            <label><input type="checkbox"> Inspección y limpieza de trampas</label>
-            <div>
-                <p>Hallazgo de actividad de roedor:</p>
-                <label><input type="radio" name="roedor" required> SI</label>
-                <label><input type="radio" name="roedor"> NO</label>
-                <label>Trampas: <input type="text"></label>
-            </div>
-            <label><input type="checkbox"> Colocación de cebo preventivo</label>
-            <p>Otros procedimientos:</p>
-            <textarea rows="3"></textarea>
-        </section>
-
-        <section class="recommendations">
-            <h2>III - RECOMENDACIONES</h2>
-            <textarea rows="4" required></textarea>
         </section>
 
         <footer>
