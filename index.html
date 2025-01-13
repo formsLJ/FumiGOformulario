@@ -288,23 +288,35 @@
         </section>
 
         <section class="insects">
-            <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
-            <div class="checkbox-group">
-                <div class="checkbox-column">
-                    <h3>Inspección en el establecimiento</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-                <div class="checkbox-column">
-                    <h3>Termonebulización</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-            </div>
-            <p>Otras aplicaciones:</p>
-            <textarea rows="3"></textarea>
-        </section>
+    <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
+    <div class="checkbox-group">
+        <div class="checkbox-column">
+            <h3>Inspección en el establecimiento</h3>
+            <label><input type="checkbox" name="inspeccion" value="interior"> Interior</label>
+            <label><input type="checkbox" name="inspeccion" value="exterior"> Exterior</label>
+        </div>
+        <div class="checkbox-column">
+            <h3>Termonebulización</h3>
+            <label><input type="checkbox" name="termonebulizacion" value="interior"> Interior</label>
+            <label><input type="checkbox" name="termonebulizacion" value="exterior"> Exterior</label>
+        </div>
+    </div>
 
+    <p><strong>Especifique la plaga encontrada:</strong></p>
+    <div class="plaga-deteccion">
+        <label for="tipo-plaga">Tipo de plaga:</label>
+        <input type="text" id="tipo-plaga" placeholder="Ej. Hormigas, Moscas" required>
+        
+        <label for="cantidad-plaga">Cantidad de insectos observados:</label>
+        <input type="number" id="cantidad-plaga" placeholder="Número de insectos" required>
+        
+        <label for="metodo-tratamiento">Método de tratamiento:</label>
+        <input type="text" id="metodo-tratamiento" placeholder="Ej. Pulverización, trampa pegajosa" required>
+        
+        <label for="observaciones-plaga">Observaciones adicionales:</label>
+        <textarea id="observaciones-plaga" placeholder="Detalles adicionales sobre la plaga y el tratamiento"></textarea>
+    </div>
+</section>
         <section class="rodents">
             <h2>II - ROEDORES</h2>
             <div class="block">
