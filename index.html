@@ -40,16 +40,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .table th, .table td {
-            border: 1px solid #003366;
-            padding: 8px;
-            text-align: center;
-        }
         .section {
             margin-top: 20px;
             padding: 10px;
@@ -90,27 +80,18 @@
             border-top: 2px solid #003366;
             padding-top: 10px;
         }
-
-        /* Nueva parte para crear dos columnas: Dispositivos y Consumo */
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Dos columnas: una para dispositivos, otra para consumo */
-            gap: 20px; /* Espacio entre las columnas */
-        }
-        .grid-item {
+        .radio-group {
             display: flex;
-            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-top: 10px;
         }
-
-        .column-header {
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
+        .textarea-container {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="header">REPORTE DE SERVICIO</div>
 
@@ -124,7 +105,7 @@
             <h3>Hora de Servicio</h3>
             <label>Día:</label>
             <input type="text" name="dia">
-            
+
             <label>Fecha:</label>
             <input type="date" name="fecha">
 
@@ -137,90 +118,59 @@
 
         <div class="section">
             <h3>Cantidad de Dispositivo y Consumo</h3>
-            <div class="grid-container">
-                <!-- Columna para Cantidad de Dispositivo -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                 <div>
-                    <div class="column-header">Cantidad de Dispositivo</div>
-                    <div class="grid-item">
-                        <label>Ext.</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>Int.</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>UV</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>Disp. Dañado</label>
-                        <input type="text">
-                    </div>
+                    <h4 style="text-align: center;">Cantidad de Dispositivo</h4>
+                    <label>Ext.</label>
+                    <input type="text">
+                    <label>Int.</label>
+                    <input type="text">
+                    <label>UV</label>
+                    <input type="text">
+                    <label>Disp. Dañado</label>
+                    <input type="text">
                 </div>
-
-                <!-- Columna para Cantidad de Consumo -->
                 <div>
-                    <div class="column-header">Cantidad de Consumo</div>
-                    <div class="grid-item">
-                        <label>Ext.</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>Int.</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>UV</label>
-                        <input type="text">
-                    </div>
-                    <div class="grid-item">
-                        <label>Disp. Dañado</label>
-                        <input type="text">
-                    </div>
+                    <h4 style="text-align: center;">Cantidad de Consumo</h4>
+                    <label>Ext.</label>
+                    <input type="text">
+                    <label>Int.</label>
+                    <input type="text">
+                    <label>UV</label>
+                    <input type="text">
+                    <label>Disp. Dañado</label>
+                    <input type="text">
                 </div>
-            </div>
-
-            <div class="section">
-                <label>Actividad:</label>
-                <input type="text" name="actividad">
             </div>
         </div>
 
-        <!-- II - Roedores Sección -->
         <div class="section">
-            <h3><input type="checkbox"> II - Roedores</h3>
-            
-            <!-- Inspección y limpieza de trampas -->
+            <h3>II - Roedores</h3>
             <div class="checkbox-group">
-                <input type="checkbox"> 
-                <label>Inspección y limpieza de trampas</label>
+                <input type="checkbox" id="inspeccion_trampas">
+                <label for="inspeccion_trampas">Inspección y limpieza de trampas</label>
             </div>
-
-            <!-- Hallazgo de actividad de roedor -->
             <label>Hallazgo de actividad de roedor:</label>
-            <div class="checkbox-group">
-                <input type="radio" name="actividad_roedor" value="si"> <label>SI</label>
-                <input type="radio" name="actividad_roedor" value="no"> <label>NO</label>
+            <div class="radio-group">
+                <input type="radio" name="actividad_roedor" id="actividad_si" value="si">
+                <label for="actividad_si">Sí</label>
+                <input type="radio" name="actividad_roedor" id="actividad_no" value="no">
+                <label for="actividad_no">No</label>
             </div>
-
-            <!-- Trampas -->
             <label>Trampas:</label>
             <input type="text" name="trampas">
-
-            <!-- Colocación de cebo preventivo -->
             <div class="checkbox-group">
-                <input type="checkbox"> 
-                <label>Colocación de cebo preventivo</label>
+                <input type="checkbox" id="cebo_preventivo">
+                <label for="cebo_preventivo">Colocación de cebo preventivo</label>
             </div>
-
-            <!-- Otros procedimientos -->
-            <label>Otros procedimientos:</label>
-            <textarea name="otros_procedimientos"></textarea>
+            <div class="textarea-container">
+                <label>Otros procedimientos:</label>
+                <textarea name="otros_procedimientos"></textarea>
+            </div>
         </div>
 
         <div class="section">
-            <h3><input type="checkbox"> III - Recomendaciones</h3>
+            <h3>III - Recomendaciones</h3>
             <textarea></textarea>
         </div>
 
@@ -231,7 +181,5 @@
 
         <button class="btn-submit" type="submit">Enviar Reporte</button>
     </div>
-
 </body>
 </html>
-
