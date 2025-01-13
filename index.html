@@ -52,27 +52,27 @@
         }
 
         .block {
-            width: 100%;  /* Asegura que el bloque ocupe todo el ancho disponible */
-            margin-bottom: 15px;  /* Espacio entre bloques */
-            padding: 10px;  /* Relleno para que no quede pegado al borde */
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
             background-color: #f0f0f0;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
 
         .block label, .block p, .block input, .block textarea {
-            display: block;  /* Hace que cada elemento esté en su propia línea */
-            width: 100%;  /* Hace que los elementos ocupen el 100% del ancho del bloque */
-            margin-bottom: 10px;  /* Espacio entre cada campo */
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
         }
 
         .block input[type="checkbox"], .block input[type="radio"] {
-            width: auto;  /* Permite que los checkboxes tengan su tamaño natural */
-            margin-right: 10px;  /* Añade espacio a la derecha de los checkboxes */
+            width: auto;
+            margin-right: 10px;
         }
 
         .block input[type="text"], .block textarea {
-            width: 100%;  /* Asegura que los campos de texto y textarea ocupen todo el ancho */
+            width: 100%;
             padding: 8px;
             margin-top: 5px;
             border: 1px solid #ccc;
@@ -85,8 +85,8 @@
         }
 
         textarea {
-            width: 100%;  /* Asegura que el textarea ocupe todo el ancho */
-            height: 100px;  /* Establece una altura para el textarea */
+            width: 100%;
+            height: 100px;
         }
 
         .signatures {
@@ -302,101 +302,7 @@
                     <button onclick="saveSignature('firmaEspecialista')">Guardar Firma Especialista</button>
                 </div>
             </div>
-        <footer>
-            <div class="footer-info">
-                <p><strong>FUMIGO</strong> - LA EXCELENCIA EN EL CONTROL DE PLAGAS</p>
-                <p>RUC N°: 0012093630027M</p>
-                <p>TELÉFONOS: 7752 4441 / 8820 8016</p>
-                <p>DIRECCIÓN: COLONIA DEL PERIODISTA, CASA 216</p>
-                <p>FACEBOOK: FumiGO</p>
-            </div>
-            <div class="signatures">
-                <div>
-                    <p>__________________________</p>
-                    <p>FIRMA DEL CLIENTE / Encargado</p>
-                    <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
-                    <button onclick="clearCanvas('firmaCliente')">Borrar Firma Cliente</button>
-                    <button onclick="saveSignature('firmaCliente')">Guardar Firma Cliente</button>
-                </div>
-                <div>
-                    <p>__________________________</p>
-                    <p>ESPECIALISTA DE SERVICIOS</p>
-                    <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
-                    <button onclick="clearCanvas('firmaEspecialista')">Borrar Firma Especialista</button>
-                    <button onclick="saveSignature('firmaEspecialista')">Guardar Firma Especialista</button>
-                </div>
-            </div>
         </footer>
     </div>
-    <script>
-        // Configuración de los lienzos para las firmas
-        const canvasCliente = document.getElementById('firmaCliente');
-        const contextCliente = canvasCliente.getContext('2d');
-        let isDrawingCliente = false;
-
-        const canvasEspecialista = document.getElementById('firmaEspecialista');
-        const contextEspecialista = canvasEspecialista.getContext('2d');
-        let isDrawingEspecialista = false;
-
-        // Función para comenzar a dibujar
-        function startDrawing(e, context, canvas, isDrawing) {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            isDrawing = true;
-            draw(x, y, context);
-        }
-
-        // Función para detener el dibujo
-        function stopDrawing(isDrawing) {
-            isDrawing = false;
-            context.beginPath();
-        }
-
-        // Función para dibujar en el canvas
-        function draw(x, y, context) {
-            if (!isDrawing) return;
-            context.lineWidth = 2;
-            context.lineCap = 'round';
-            context.strokeStyle = '#000';
-
-            context.lineTo(x, y);
-            context.stroke();
-            context.beginPath();
-            context.moveTo(x, y);
-        }
-
-        // Función para limpiar la firma
-        function clearCanvas(canvas, context) {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-        }
-
-        // Eventos para cliente
-        canvasCliente.addEventListener('mousedown', (e) => startDrawing(e, contextCliente, canvasCliente, isDrawingCliente));
-        canvasCliente.addEventListener('mousemove', (e) => {
-            if (isDrawingCliente) {
-                const rect = canvasCliente.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                draw(x, y, contextCliente);
-            }
-        });
-        canvasCliente.addEventListener('mouseup', () => stopDrawing(isDrawingCliente));
-        canvasCliente.addEventListener('mouseout', () => stopDrawing(isDrawingCliente));
-
-        // Eventos para especialista
-        canvasEspecialista.addEventListener('mousedown', (e) => startDrawing(e, contextEspecialista, canvasEspecialista, isDrawingEspecialista));
-        canvasEspecialista.addEventListener('mousemove', (e) => {
-            if (isDrawingEspecialista) {
-                const rect = canvasEspecialista.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                draw(x, y, contextEspecialista);
-            }
-        });
-        canvasEspecialista.addEventListener('mouseup', () => stopDrawing(isDrawingEspecialista));
-        canvasEspecialista.addEventListener('mouseout', () => stopDrawing(isDrawingEspecialista));
-    </script>
 </body>
 </html>
