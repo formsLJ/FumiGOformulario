@@ -3,210 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte de Servicio - FumiGO</title>
+    <title>Reporte de Servicio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
         .container {
-            max-width: 900px;
-            background: white;
-            padding: 20px;
+            width: 80%;
             margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            text-align: center;
-            background: #003366;
-            color: white;
-            padding: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 5px;
-            margin: 5px 0;
+            background: #fff;
+            padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .table {
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #003c8f;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #003c8f;
+        }
+        .header .logo {
+            float: right;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            background-color: #003c8f;
+            color: #fff;
+            padding: 5px;
+            font-size: 16px;
+        }
+        table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
-        .table th, .table td {
-            border: 1px solid #003366;
-            padding: 8px;
-            text-align: center;
+        table th,
+        table td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: left;
+            font-size: 12px;
         }
-        .section {
-            margin-top: 20px;
-            padding: 10px;
-            border: 2px solid #003366;
-            border-radius: 5px;
-        }
-        .checkbox-group {
+        .checkbox-label {
             display: flex;
             align-items: center;
-            margin: 5px 0;
         }
-        .checkbox-group input {
-            width: auto;
+        .checkbox-label input {
             margin-right: 10px;
         }
-        .btn-submit {
-            background: #003366;
-            color: white;
-            padding: 10px;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        .btn-submit:hover {
-            background: #0055a5;
-        }
-        .firma-container {
+        .footer {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
+            font-size: 12px;
         }
-        .firma {
-            width: 45%;
-            text-align: center;
-            border-top: 2px solid #003366;
-            padding-top: 10px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            align-items: center;
-        }
-        .grid-header {
-            text-align: center;
-            font-weight: bold;
-            background-color: #f4f4f4;
-            border: 1px solid #003366;
-            padding: 5px;
-        }
-        .grid-item {
-            border: 1px solid #003366;
-            padding: 5px;
+        .footer div {
             text-align: center;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <div class="header">REPORTE DE SERVICIO</div>
-
-        <label>Nombre del Cliente:</label>
-        <input type="text" name="nombre_cliente">
-
-        <label>Fecha de Servicio:</label>
-        <input type="date" name="fecha_servicio">
-
-        <div class="section">
-            <h3>Hora de Servicio</h3>
-            <div class="grid-container">
-                <div class="grid-header">Día</div>
-                <div class="grid-header">Fecha</div>
-                <div class="grid-header">Hora</div>
-                <div class="grid-header">Próxima Visita</div>
-                <div class="grid-header">Actividad</div>
-
-                <input class="grid-item" type="text" name="dia">
-                <input class="grid-item" type="date" name="fecha">
-                <input class="grid-item" type="time" name="hora">
-                <input class="grid-item" type="text" name="proxima_visita">
-                <input class="grid-item" type="text" name="actividad">
-            </div>
+        <div class="header">
+            <h1>REPORTE DE SERVICIO</h1>
+            <img src="logo.png" alt="Logo FumiGo" class="logo" />
         </div>
 
         <div class="section">
-            <h3>I - Insectos Rastreros / Voladores</h3>
-            <div class="grid-container">
-                <div class="grid-header">Actividad</div>
-                <div class="grid-header">Interior</div>
-                <div class="grid-header">Exterior</div>
-
-                <label class="grid-item">Inspección en el establecimiento</label>
-                <input class="grid-item" type="checkbox" name="int">
-                <input class="grid-item" type="checkbox" name="ext">
-
-                <label class="grid-item">Termonebulización</label>
-                <input class="grid-item" type="checkbox" name="int">
-                <input class="grid-item" type="checkbox" name="ext">
-
-                <label class="grid-item">Aplicación de Feromona</label>
-                <input class="grid-item" type="checkbox" name="int">
-                <input class="grid-item" type="checkbox" name="ext">
-
-                <label class="grid-item">Aspersión</label>
-                <input class="grid-item" type="checkbox" name="int">
-                <input class="grid-item" type="checkbox" name="ext">
-
-                <label class="grid-item">Nebulización</label>
-                <input class="grid-item" type="checkbox" name="int">
-                <input class="grid-item" type="checkbox" name="ext">
-            </div>
-
-            <label>Otras aplicaciones:</label>
-            <textarea></textarea>
+            <table>
+                <tr>
+                    <th>Nombre del Cliente</th>
+                    <th>Fecha de Servicio</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
 
         <div class="section">
-            <h3>II - Roedores</h3>
-            <div class="checkbox-group">
-                <input type="checkbox"> 
-                <label>Inspección y limpieza de trampas</label>
-            </div>
-
-            <label>Hallazgo de actividad de roedor:</label>
-            <div class="checkbox-group">
-                <input type="radio" name="actividad_roedor" value="si"> <label>SI</label>
-                <input type="radio" name="actividad_roedor" value="no"> <label>NO</label>
-            </div>
-
-            <label>Trampas:</label>
-            <input type="text" name="trampas">
-
-            <div class="checkbox-group">
-                <input type="checkbox"> 
-                <label>Colocación de cebo preventivo</label>
-            </div>
-
-            <label>Otros procedimientos:</label>
-            <textarea name="otros_procedimientos"></textarea>
+            <h3 class="section-title">Hora de Servicio</h3>
+            <table>
+                <tr>
+                    <th>Próxima Visita</th>
+                    <th>Cantidad de Dispositivo</th>
+                    <th>Cantidad de Consumo</th>
+                    <th>Plaga Señalada</th>
+                    <th>% de Pesticida Usado</th>
+                    <th>Cantidad</th>
+                    <th>Método de Aplicación</th>
+                    <th>Lugar</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
 
         <div class="section">
-            <h3>III - Recomendaciones</h3>
-            <textarea></textarea>
+            <h3 class="section-title">I - Insectos Rastrerors / Voladores</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Int.</th>
+                    <th>Ext.</th>
+                </tr>
+                <tr>
+                    <td>Inspección en el establecimiento</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Termonebulización</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Aplicación de Feromona</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Aspersión</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Nebulización</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+            </table>
         </div>
 
-        <div class="firma-container">
-            <div class="firma">Firma del Cliente / Encargado</div>
-            <div class="firma">Especialista de Servicios</div>
+        <div class="section">
+            <h3 class="section-title">II - Roedores</h3>
+            <table>
+                <tr>
+                    <td>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Inspección y limpieza de trampas
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Hallazgo de actividad de roedor
+                        </label>
+                        <span>SI</span> <input type="checkbox">
+                        <span>NO</span> <input type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Colocación de cebo preventivo</td>
+                </tr>
+            </table>
         </div>
 
-        <button class="btn-submit" type="submit">Enviar Reporte</button>
+        <div class="section">
+            <h3 class="section-title">III - Recomendaciones</h3>
+            <textarea rows="5" style="width: 100%;"></textarea>
+        </div>
+
+        <div class="footer">
+            <div>
+                <p>Firma del Cliente / Encargado</p>
+                <p>_______________________</p>
+            </div>
+            <div>
+                <p>Especialista de Servicios</p>
+                <p>_______________________</p>
+            </div>
+        </div>
     </div>
-
 </body>
 </html>
