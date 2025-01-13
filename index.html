@@ -12,7 +12,7 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             background: white;
             padding: 20px;
             margin: 20px auto;
@@ -39,6 +39,16 @@
             margin: 5px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            border: 1px solid #003366;
+            padding: 8px;
+            text-align: center;
         }
         .section {
             margin-top: 20px;
@@ -80,18 +90,28 @@
             border-top: 2px solid #003366;
             padding-top: 10px;
         }
-        .radio-group {
-            display: flex;
-            gap: 20px;
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
             align-items: center;
-            margin-top: 10px;
         }
-        .textarea-container {
-            margin-top: 10px;
+        .grid-header {
+            text-align: center;
+            font-weight: bold;
+            background-color: #f4f4f4;
+            border: 1px solid #003366;
+            padding: 5px;
+        }
+        .grid-item {
+            border: 1px solid #003366;
+            padding: 5px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="header">REPORTE DE SERVICIO</div>
 
@@ -103,70 +123,76 @@
 
         <div class="section">
             <h3>Hora de Servicio</h3>
-            <label>Día:</label>
-            <input type="text" name="dia">
+            <div class="grid-container">
+                <div class="grid-header">Día</div>
+                <div class="grid-header">Fecha</div>
+                <div class="grid-header">Hora</div>
+                <div class="grid-header">Próxima Visita</div>
+                <div class="grid-header">Actividad</div>
 
-            <label>Fecha:</label>
-            <input type="date" name="fecha">
-
-            <label>Hora:</label>
-            <input type="time" name="hora">
-
-            <label>Actividad:</label>
-            <input type="text" name="actividad">
+                <input class="grid-item" type="text" name="dia">
+                <input class="grid-item" type="date" name="fecha">
+                <input class="grid-item" type="time" name="hora">
+                <input class="grid-item" type="text" name="proxima_visita">
+                <input class="grid-item" type="text" name="actividad">
+            </div>
         </div>
 
         <div class="section">
-            <h3>Cantidad de Dispositivo y Consumo</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div>
-                    <h4 style="text-align: center;">Cantidad de Dispositivo</h4>
-                    <label>Ext.</label>
-                    <input type="text">
-                    <label>Int.</label>
-                    <input type="text">
-                    <label>UV</label>
-                    <input type="text">
-                    <label>Disp. Dañado</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <h4 style="text-align: center;">Cantidad de Consumo</h4>
-                    <label>Ext.</label>
-                    <input type="text">
-                    <label>Int.</label>
-                    <input type="text">
-                    <label>UV</label>
-                    <input type="text">
-                    <label>Disp. Dañado</label>
-                    <input type="text">
-                </div>
+            <h3>I - Insectos Rastreros / Voladores</h3>
+            <div class="grid-container">
+                <div class="grid-header">Actividad</div>
+                <div class="grid-header">Interior</div>
+                <div class="grid-header">Exterior</div>
+
+                <label class="grid-item">Inspección en el establecimiento</label>
+                <input class="grid-item" type="checkbox" name="int">
+                <input class="grid-item" type="checkbox" name="ext">
+
+                <label class="grid-item">Termonebulización</label>
+                <input class="grid-item" type="checkbox" name="int">
+                <input class="grid-item" type="checkbox" name="ext">
+
+                <label class="grid-item">Aplicación de Feromona</label>
+                <input class="grid-item" type="checkbox" name="int">
+                <input class="grid-item" type="checkbox" name="ext">
+
+                <label class="grid-item">Aspersión</label>
+                <input class="grid-item" type="checkbox" name="int">
+                <input class="grid-item" type="checkbox" name="ext">
+
+                <label class="grid-item">Nebulización</label>
+                <input class="grid-item" type="checkbox" name="int">
+                <input class="grid-item" type="checkbox" name="ext">
             </div>
+
+            <label>Otras aplicaciones:</label>
+            <textarea></textarea>
         </div>
 
         <div class="section">
             <h3>II - Roedores</h3>
             <div class="checkbox-group">
-                <input type="checkbox" id="inspeccion_trampas">
-                <label for="inspeccion_trampas">Inspección y limpieza de trampas</label>
+                <input type="checkbox"> 
+                <label>Inspección y limpieza de trampas</label>
             </div>
+
             <label>Hallazgo de actividad de roedor:</label>
-            <div class="radio-group">
-                <input type="radio" name="actividad_roedor" id="actividad_si" value="si">
-                <label for="actividad_si">Sí</label>
-                <input type="radio" name="actividad_roedor" id="actividad_no" value="no">
-                <label for="actividad_no">No</label>
+            <div class="checkbox-group">
+                <input type="radio" name="actividad_roedor" value="si"> <label>SI</label>
+                <input type="radio" name="actividad_roedor" value="no"> <label>NO</label>
             </div>
+
             <label>Trampas:</label>
             <input type="text" name="trampas">
+
             <div class="checkbox-group">
-                <input type="checkbox" id="cebo_preventivo">
-                <label for="cebo_preventivo">Colocación de cebo preventivo</label>
+                <input type="checkbox"> 
+                <label>Colocación de cebo preventivo</label>
             </div>
-            <div class="textarea-container">
-                <label>Otros procedimientos:</label>
-                <textarea name="otros_procedimientos"></textarea>
-            </div>
+
+            <label>Otros procedimientos:</label>
+            <textarea name="otros_procedimientos"></textarea>
         </div>
 
         <div class="section">
@@ -181,5 +207,6 @@
 
         <button class="btn-submit" type="submit">Enviar Reporte</button>
     </div>
+
 </body>
 </html>
