@@ -5,28 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Servicio - FumiGO</title>
 
-    <script>
-  document.getElementById("downloadBtn").addEventListener("click", function() {
-    // Obtener los valores del formulario
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    // Crear el objeto jsPDF
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Agregar contenido al PDF
-    doc.text("Formulario de contacto", 20, 20);
-    doc.text(`Nombre: ${name}`, 20, 30);
-    doc.text(`Correo electrónico: ${email}`, 20, 40);
-    doc.text(`Mensaje: ${message}`, 20, 50);
-
-    // Descargar el PDF
-    doc.save("formulario.pdf");
-  });
-</script>
-
     <style>
         * {
             margin: 0;
@@ -459,5 +437,26 @@
         </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+  document.getElementById("downloadBtn").addEventListener("click", function() {
+    // Obtener los valores del formulario
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Crear el objeto jsPDF
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Agregar contenido al PDF
+    doc.text("Formulario de contacto", 20, 20);
+    doc.text(`Nombre: ${name}`, 20, 30);
+    doc.text(`Correo electrónico: ${email}`, 20, 40);
+    doc.text(`Mensaje: ${message}`, 20, 50);
+
+    // Descargar el PDF
+    doc.save("formulario.pdf");
+  });
+</script>
 </body>
 </html>
