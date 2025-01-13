@@ -83,26 +83,36 @@
             border-radius: 4px;
         }
 
+        input:focus, textarea:focus {
+            border: 2px solid #00509E;
+            outline: none;
+        }
+
         button {
-            background-color: #003366;
+            background-color: #00509E;
             color: white;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            font-size: 12px;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
         }
 
         button:hover {
-            background-color: #00509E;
+            background-color: #003366;
         }
 
         @media (max-width: 768px) {
-            .service-time {
-                flex-direction: column;
+            table {
+                font-size: 12px;
             }
 
-            .block {
+            .service-time .block, .insects, .rodents, .recommendations {
                 width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .logo img {
+                width: 150px;
+                height: auto;
             }
         }
 
@@ -116,8 +126,21 @@
                 background-color: #fff;
             }
         }
+
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+        }
+
+        .signatures div {
+            text-align: center;
+            width: 45%;
+        }
     </style>
-    </head>
+</head>
 <body>
     <div class="container">
         <header>
@@ -133,12 +156,6 @@
                     <img src="logos fumiGO OUT.png" alt="Logotipo de FumiGO">
                 </div>
             </div>
-        </header>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>REPORTE DE SERVICIO</h1>
         </header>
 
         <section class="service-time">
@@ -239,7 +256,6 @@
                 </table>
             </div>
         </section>
-      </section>
 
         <section class="insects">
             <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
@@ -258,7 +274,8 @@
             <p>Otras aplicaciones:</p>
             <textarea rows="3"></textarea>
         </section>
-         <section class="rodents">
+
+        <section class="rodents">
             <h2>II - ROEDORES</h2>
             <label><input type="checkbox"> Inspección y limpieza de trampas</label>
             <div>
