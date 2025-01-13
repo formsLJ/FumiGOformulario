@@ -425,10 +425,9 @@
             // Configurar las opciones para la conversión a PDF
             const options = {
     filename: 'reporte_servicio.pdf',
-    html2canvas: { scale: 2 }, // Ajusta la escala si es necesario
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true }
+    html2canvas: { scale: 4 },
+    jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' } // Usar A3 en vez de A4
 };
-
             // Generar el PDF con el contenido del formulario
             html2pdf().from(formContent).set(options).save().then(() => {
                 // Después de que el PDF se haya descargado, enviar el formulario
