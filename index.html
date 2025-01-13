@@ -15,136 +15,141 @@
         body {
             background-color: #f9f9f9;
             padding: 20px;
+            font-size: 16px;
+            color: #333;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 100%;
+            width: 100%;
             margin: auto;
             background-color: #fff;
             padding: 20px;
             border: 1px solid #ccc;
+            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        header h1 {
+        header {
+            text-align: center;
             background-color: #003366;
             color: #fff;
-            padding: 10px;
-            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
         }
 
         .header-info {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
             margin-bottom: 20px;
         }
 
         .header-info div {
-            width: 30%;
-        }
-
-        .service-time {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
+            flex-direction: column;
         }
 
-        .block {
-            width: 30%;
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 5px;
+        .header-info label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="date"], input[type="number"], input[type="time"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
-            margin-bottom: 10px;
-        }
-
-        .block h3 {
-            background-color: #003366;
-            color: #fff;
-            padding: 5px;
-            text-align: center;
-            margin-bottom: 10px;
+            border-radius: 4px;
             font-size: 14px;
         }
 
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 5px;
-            font-size: 10px;
-            text-align: center;
-        }
-
-        th, td {
-            width: 15%;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input:focus, textarea:focus {
-            border: 2px solid #00509E;
+        input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, input[type="time"]:focus, textarea:focus {
+            border-color: #00509E;
             outline: none;
         }
 
         button {
             background-color: #00509E;
             color: white;
-            border-radius: 5px;
+            border: none;
             padding: 10px 20px;
-            font-size: 14px;
+            font-size: 16px;
             cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
         }
 
         button:hover {
             background-color: #003366;
         }
 
-        @media (max-width: 768px) {
-            table {
-                font-size: 12px;
-            }
-
-            .service-time .block, .insects, .rodents, .recommendations {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .logo img {
-                width: 100%;
-                max-width: 100px;
-                height: auto;
-            }
+        .block {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
         }
 
-        @media print {
-            button {
-                display: none;
+        .service-time .block {
+            background-color: #e0e0e0;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header-info {
+                grid-template-columns: 1fr;
             }
 
-            body {
-                padding: 0;
-                background-color: #fff;
+            .block {
+                padding: 15px;
+            }
+
+            button {
+                width: auto;
+                padding: 10px 15px;
+            }
+
+            .table-responsive table {
+                font-size: 14px;
+            }
+
+            .service-time .block {
+                background-color: #f4f4f4;
             }
         }
 
         .signatures {
             display: flex;
             justify-content: space-between;
-            padding-top: 20px;
             margin-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid #ccc;
         }
 
@@ -153,16 +158,21 @@
             width: 45%;
         }
 
-        .checkbox-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            flex-wrap: wrap;
+        .footer-info {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 30px;
         }
 
-        .checkbox-column {
-            width: 48%;
-            margin-bottom: 15px;
+        .footer-info p {
+            margin-bottom: 5px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 10px;
         }
 
         .checkbox-column h3 {
@@ -173,15 +183,11 @@
         .checkbox-column label {
             display: block;
             margin: 5px 0;
-            font-size: 12px;
+            font-size: 13px;
         }
 
         textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            height: 100px;
         }
 
     </style>
@@ -190,20 +196,21 @@
     <div class="container">
         <header>
             <h1>REPORTE DE SERVICIO</h1>
-            <div class="header-info">
-                <div>
-                    <label for="cliente"><strong>NOMBRE DEL CLIENTE:</strong></label>
-                    <input type="text" id="cliente" required>
-                </div>
-                <div>
-                    <label for="fecha-servicio"><strong>FECHA DE SERVICIO:</strong></label>
-                    <input type="date" id="fecha-servicio" required>
-                </div>
-                <div class="logo">
-                    <img src="" alt="">
-                </div>
-            </div>
         </header>
+
+        <section class="header-info">
+            <div>
+                <label for="cliente"><strong>NOMBRE DEL CLIENTE:</strong></label>
+                <input type="text" id="cliente" required>
+            </div>
+            <div>
+                <label for="fecha-servicio"><strong>FECHA DE SERVICIO:</strong></label>
+                <input type="date" id="fecha-servicio" required>
+            </div>
+            <div class="logo">
+                <img src="" alt="">
+            </div>
+        </section>
 
         <section class="service-time">
             <div class="block">
@@ -218,89 +225,65 @@
 
             <div class="block">
                 <h3>CANTIDAD DE DISPOSITIVOS Y CONSUMO</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Dispositivo</th>
-                            <th>Cantidad</th>
-                            <th>Consumo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ext.</td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                        </tr>
-                        <tr>
-                            <td>Int.</td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                        </tr>
-                        <tr>
-                            <td>Uv.</td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                        </tr>
-                        <tr>
-                            <td>Disp. Dañado</td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dispositivo</th>
+                                <th>Cantidad</th>
+                                <th>Consumo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ext.</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>Int.</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>Uv.</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>Disp. Dañado</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="block">
                 <h3>PLAGA SEÑALADA Y DETALLES</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>PLAGA SEÑALADA</th>
-                            <th>% DE PESTICIDA USADO</th>
-                            <th>CANTIDAD</th>
-                            <th>MÉTODO DE APLICACIÓN</th>
-                            <th>LUGAR</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PLAGA SEÑALADA</th>
+                                <th>% DE PESTICIDA USADO</th>
+                                <th>CANTIDAD</th>
+                                <th>MÉTODO DE APLICACIÓN</th>
+                                <th>LUGAR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="number"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -317,85 +300,38 @@
                     <label><input type="checkbox"> Int.</label>
                     <label><input type="checkbox"> Ext.</label>
                 </div>
-                <div class="checkbox-column">
-                    <h3>Aplicación de Feromona</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-                <div class="checkbox-column">
-                    <h3>Aspersión</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
-                <div class="checkbox-column">
-                    <h3>Nebulización</h3>
-                    <label><input type="checkbox"> Int.</label>
-                    <label><input type="checkbox"> Ext.</label>
-                </div>
             </div>
             <p>Otras aplicaciones:</p>
             <textarea rows="3"></textarea>
         </section>
 
-       <section class="rodents">
-    <h2>II - ROEDORES</h2>
-    
-    <!-- Inspección y limpieza de trampas -->
-    <div class="block">
-        <label><input type="checkbox"> Inspección y limpieza de trampas</label>
-    </div>
-    
-    <!-- Hallazgo de actividad de roedor -->
-    <div class="block">
-        <p>Hallazgo de actividad de roedor:</p>
-        <label><input type="radio" name="roedor-actividad" required> SI</label>
-        <label><input type="radio" name="roedor-actividad"> NO</label>
-        <div>
-            <label for="trampas">Trampas:</label>
-            <input type="text" id="trampas" placeholder="Cantidad de trampas encontradas">
-        </div>
-    </div>
-    
-    <!-- Colocación de cebo preventivo -->
-    <div class="block">
-        <label><input type="checkbox"> Colocación de cebo preventivo</label>
-    </div>
-    
-    <!-- Otros procedimientos -->
-    <div class="block">
-        <p>Otros procedimientos:</p>
-        <textarea rows="3" placeholder="Describa otros procedimientos aplicados"></textarea>
-    </div>
-</section>
+        <section class="rodents">
+            <h2>II - ROEDORES</h2>
+            <div class="block">
+                <label><input type="checkbox"> Inspección y limpieza de trampas</label>
+            </div>
+            <div class="block">
+                <p>Hallazgo de actividad de roedor:</p>
+                <label><input type="radio" name="roedor"> Fecales</label>
+                <label><input type="radio" name="roedor"> Cápsulas</label>
+                <label><input type="radio" name="roedor"> Otros</label>
+            </div>
+        </section>
 
-        <footer>
-            <div class="footer-info">
-                <p><strong>FUMIGO</strong> - LA EXCELENCIA EN EL CONTROL DE PLAGAS</p>
-                <p>RUC N°: 0012093630027M</p>
-                <p>TELÉFONOS: 7752 4441 / 8820 8016</p>
-                <p>DIRECCIÓN: COLONIA DEL PERIODISTA, CASA 216</p>
-                <p>FACEBOOK: FumiGO</p>
+        <section class="signatures">
+            <div>
+                <p><strong>Firma del cliente</strong></p>
+                <p>(Firma de aceptación)</p>
             </div>
-            <div class="signatures">
-                <div>
-                    <p>__________________________</p>
-                    <p>FIRMA DEL CLIENTE / Encargado</p>
-                    <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
-                    <button onclick="clearCanvas('firmaCliente')">Borrar Firma Cliente</button>
-                    <button onclick="saveSignature('firmaCliente')">Guardar Firma Cliente</button>
-                </div>
-                <div>
-                    <p>__________________________</p>
-                    <p>ESPECIALISTA DE SERVICIOS</p>
-                    <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
-                    <button onclick="clearCanvas('firmaEspecialista')">Borrar Firma Especialista</button>
-                    <button onclick="saveSignature('firmaEspecialista')">Guardar Firma Especialista</button>
-                </div>
+            <div>
+                <p><strong>Firma del técnico</strong></p>
+                <p>(Firma de realización del servicio)</p>
             </div>
-        </footer>
+        </section>
+
+        <section class="footer-info">
+            <p>© 2025 FumiGO. Todos los derechos reservados.</p>
+        </section>
     </div>
-    <script>
-        // Aquí iría tu script para las firmas
-    </script>
 </body>
 </html>
