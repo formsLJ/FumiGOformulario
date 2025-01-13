@@ -431,15 +431,14 @@
             <p>© 2025 FumiGO. Todos los derechos reservados.</p>
         </section>
     </div>
-        <script>
+         <script>
         document.getElementById("downloadBtn").addEventListener("click", function() {
             // Obtener los valores del formulario
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
+            const cliente = document.getElementById("cliente").value;
+            const fechaServicio = document.getElementById("fecha-servicio").value;
 
             // Comprobar si los campos no están vacíos
-            if (name === "" || email === "" || message === "") {
+            if (cliente === "" || fechaServicio === "") {
                 alert("Por favor, llena todos los campos.");
                 return;
             }
@@ -449,13 +448,12 @@
             const doc = new jsPDF();
 
             // Agregar contenido al PDF
-            doc.text("Formulario de contacto", 20, 20);
-            doc.text(`Nombre: ${name}`, 20, 30);
-            doc.text(`Correo electrónico: ${email}`, 20, 40);
-            doc.text(`Mensaje: ${message}`, 20, 50);
+            doc.text("Reporte de Servicio", 20, 20);
+            doc.text(`Nombre del Cliente: ${cliente}`, 20, 30);
+            doc.text(`Fecha de Servicio: ${fechaServicio}`, 20, 40);
 
             // Descargar el PDF
-            doc.save("formulario.pdf");
+            doc.save("reporte_servicio.pdf");
 
             // Después de generar el PDF, enviar el formulario
             document.getElementById("myForm").submit();
