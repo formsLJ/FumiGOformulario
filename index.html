@@ -45,6 +45,11 @@
             width: 30%;
         }
 
+        .logo img {
+            max-width: 100px;
+            height: auto;
+        }
+
         .service-time {
             display: flex;
             justify-content: space-between;
@@ -53,7 +58,7 @@
         }
 
         .block {
-            width: 30%;
+            width: 48%;
             background-color: #f0f0f0;
             padding: 15px;
             border-radius: 5px;
@@ -72,13 +77,13 @@
 
         table, th, td {
             border: 1px solid #ccc;
-            padding: 5px;  /* Reduce el padding */
-            font-size: 10px;  /* Hace la fuente más pequeña */
+            padding: 5px;
+            font-size: 10px;
             text-align: center;
         }
 
         th, td {
-            width: 15%;  /* Asigna un ancho igual para cada columna */
+            width: 15%;
         }
 
         table {
@@ -114,18 +119,23 @@
         }
 
         @media (max-width: 768px) {
-            table {
-                font-size: 12px;
-            }
-
-            .service-time .block, .insects, .rodents, .recommendations {
+            .service-time .block {
                 width: 100%;
                 margin-bottom: 20px;
             }
 
+            table, th, td {
+                font-size: 12px;
+            }
+
+            .header-info div {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
             .logo img {
                 width: 100%;
-                max-width: 100px;  /* Ajusta este valor según el tamaño que desees */
+                max-width: 100px;
                 height: auto;
             }
         }
@@ -153,6 +163,11 @@
             text-align: center;
             width: 45%;
         }
+
+        .checkbox-group label, .checkbox-group input {
+            display: block;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -169,7 +184,7 @@
                     <input type="date" id="fecha-servicio" required>
                 </div>
                 <div class="logo">
-                    <img src="" alt="">
+                    <img src="" alt="Logo">
                 </div>
             </div>
         </header>
@@ -233,27 +248,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                        </tr>
                         <tr>
                             <td><input type="text"></td>
                             <td><input type="text"></td>
@@ -336,81 +330,76 @@
             </div>
         </footer>
     </div>
-   <script>
-    // Configuración de los lienzos para las firmas
-    const canvasCliente = document.getElementById('firmaCliente');
-    const contextCliente = canvasCliente.getContext('2d');
-    let isDrawingCliente = false;
 
-    const canvasEspecialista = document.getElementById('firmaEspecialista');
-    const contextEspecialista = canvasEspecialista.getContext('2d');
-    let isDrawingEspecialista = false;
+    <script>
+        // Configuración de los lienzos para las firmas
+        const canvasCliente = document.getElementById('firmaCliente');
+        const contextCliente = canvasCliente.getContext('2d');
+        let isDrawingCliente = false;
 
-    // Función para comenzar a dibujar
-    function startDrawing(e, context, canvas, isDrawing) {
-        const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const canvasEspecialista = document.getElementById('firmaEspecialista');
+        const contextEspecialista = canvasEspecialista.getContext('2d');
+        let isDrawingEspecialista = false;
 
-        isDrawing = true;
-        draw(x, y, context);
-    }
-
-    // Función para detener el dibujo
-    function stopDrawing(isDrawing) {
-        isDrawing = false;
-        context.beginPath();
-    }
-
-    // Función para dibujar en el canvas
-    function draw(x, y, context) {
-        if (!isDrawing) return;
-        context.lineWidth = 2;
-        context.lineCap = 'round';
-        context.strokeStyle = '#000';
-
-        context.lineTo(x, y);
-        context.stroke();
-        context.beginPath();
-        context.moveTo(x, y);
-    }
-
-    // Función para limpiar la firma
-    function clearCanvas(canvas, context) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    // Eventos para cliente
-    canvasCliente.addEventListener('mousedown', (e) => startDrawing(e, contextCliente, canvasCliente, isDrawingCliente));
-    canvasCliente.addEventListener('mousemove', (e) => {
-        if (isDrawingCliente) {
-            const rect = canvasCliente.getBoundingClientRect();
+        // Función para comenzar a dibujar
+        function startDrawing(e, context, canvas, isDrawing) {
+            const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            draw(x, y, contextCliente);
+
+            isDrawing = true;
+            draw(x, y, context);
         }
-    });
-    canvasCliente.addEventListener('mouseup', () => stopDrawing(isDrawingCliente));
-    canvasCliente.addEventListener('mouseout', () => stopDrawing(isDrawingCliente));
 
-    // Eventos para especialista
-    canvasEspecialista.addEventListener('mousedown', (e) => startDrawing(e, contextEspecialista, canvasEspecialista, isDrawingEspecialista));
-    canvasEspecialista.addEventListener('mousemove', (e) => {
-        if (isDrawingEspecialista) {
-            const rect = canvasEspecialista.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            draw(x, y, contextEspecialista);
+        // Función para detener el dibujo
+        function stopDrawing(isDrawing) {
+            isDrawing = false;
+            context.beginPath();
         }
-    });
-    canvasEspecialista.addEventListener('mouseup', () => stopDrawing(isDrawingEspecialista));
-    canvasEspecialista.addEventListener('mouseout', () => stopDrawing(isDrawingEspecialista));
 
-    // Función para limpiar las firmas
-    document.getElementById('clearCliente').addEventListener('click', () => clearCanvas(canvasCliente, contextCliente));
-    document.getElementById('clearEspecialista').addEventListener('click', () => clearCanvas(canvasEspecialista, contextEspecialista));
-</script>
+        // Función para dibujar en el canvas
+        function draw(x, y, context) {
+            if (!isDrawing) return;
+            context.lineWidth = 2;
+            context.lineCap = 'round';
+            context.strokeStyle = '#000';
 
-    <script src="script.js"></script>
+            context.lineTo(x, y);
+            context.stroke();
+            context.beginPath();
+            context.moveTo(x, y);
+        }
+
+        // Función para limpiar la firma
+        function clearCanvas(canvas, context) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Eventos para cliente
+        canvasCliente.addEventListener('mousedown', (e) => startDrawing(e, contextCliente, canvasCliente, isDrawingCliente));
+        canvasCliente.addEventListener('mousemove', (e) => {
+            if (isDrawingCliente) {
+                const rect = canvasCliente.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                draw(x, y, contextCliente);
+            }
+        });
+        canvasCliente.addEventListener('mouseup', () => stopDrawing(isDrawingCliente));
+        canvasCliente.addEventListener('mouseout', () => stopDrawing(isDrawingCliente));
+
+        // Eventos para especialista
+        canvasEspecialista.addEventListener('mousedown', (e) => startDrawing(e, contextEspecialista, canvasEspecialista, isDrawingEspecialista));
+        canvasEspecialista.addEventListener('mousemove', (e) => {
+            if (isDrawingEspecialista) {
+                const rect = canvasEspecialista.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                draw(x, y, contextEspecialista);
+            }
+        });
+        canvasEspecialista.addEventListener('mouseup', () => stopDrawing(isDrawingEspecialista));
+        canvasEspecialista.addEventListener('mouseout', () => stopDrawing(isDrawingEspecialista));
+    </script>
 </body>
 </html>
