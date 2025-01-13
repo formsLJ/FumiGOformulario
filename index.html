@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Servicio - FumiGO</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -49,6 +50,11 @@
             text-align: center;
         }
 
+        .header-info img {
+            max-width: 100%;
+            height: auto;
+        }
+
         .service-time, .insects, .rodents, .recommendations {
             margin-top: 20px;
         }
@@ -92,11 +98,9 @@
             text-align: center;
         }
 
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
+        .checkbox-group label {
+            display: block;
+            margin: 5px 0;
         }
 
         textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
@@ -125,8 +129,38 @@
             justify-content: space-between;
         }
 
+        .footer-info {
+            font-size: 0.9em;
+        }
+
         .signatures div {
             text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header-info {
+                flex-direction: column;
+            }
+
+            .header-info div {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .service-time .block {
+                width: 100%;
+            }
+        }
+
+        @media print {
+            button {
+                display: none;
+            }
+
+            body {
+                padding: 0;
+                background-color: #fff;
+            }
         }
     </style>
 </head>
@@ -136,13 +170,13 @@
             <h1>REPORTE DE SERVICIO</h1>
             <div class="header-info">
                 <div>
-                    <strong>NOMBRE DEL CLIENTE:</strong> <input type="text">
+                    <strong>NOMBRE DEL CLIENTE:</strong> <input type="text" required>
                 </div>
                 <div>
-                    <strong>FECHA DE SERVICIO:</strong> <input type="date">
+                    <strong>FECHA DE SERVICIO:</strong> <input type="date" required>
                 </div>
                 <div class="logo">
-                    <img src="logo.png" alt="Logo" style="max-width: 100px; height: auto;">
+                    <img src="logo.png" alt="Logotipo de FumiGO">
                 </div>
             </div>
         </header>
@@ -168,8 +202,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
+                            <td><input type="number" required></td>
+                            <td><input type="number" required></td>
                         </tr>
                     </tbody>
                 </table>
@@ -188,11 +222,11 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
-                            <td><input type="number"></td>
-                            <td><input type="text"></td>
-                            <td><input type="text"></td>
+                            <td><input type="text" required></td>
+                            <td><input type="text" required></td>
+                            <td><input type="number" required></td>
+                            <td><input type="text" required></td>
+                            <td><input type="text" required></td>
                         </tr>
                     </tbody>
                 </table>
@@ -222,7 +256,7 @@
             <label><input type="checkbox"> Inspección y limpieza de trampas</label>
             <div>
                 <p>Hallazgo de actividad de roedor:</p>
-                <label><input type="radio" name="roedor"> SI</label>
+                <label><input type="radio" name="roedor" required> SI</label>
                 <label><input type="radio" name="roedor"> NO</label>
                 <label>Trampas: <input type="text"></label>
             </div>
@@ -233,7 +267,7 @@
 
         <section class="recommendations">
             <h2>III - RECOMENDACIONES</h2>
-            <textarea rows="4"></textarea>
+            <textarea rows="4" required></textarea>
         </section>
 
         <footer>
