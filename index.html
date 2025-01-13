@@ -53,10 +53,26 @@
             margin-top: 20px;
         }
 
-        h2 {
+        .service-time {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .service-time .block {
+            width: 32%;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .service-time .block h3 {
             background-color: #003366;
             color: #fff;
             padding: 8px;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         table {
@@ -130,37 +146,55 @@
         </header>
 
         <section class="service-time">
-            <h2>HORA DE SERVICIO</h2>
-            <div class="next-visit">
-                <button>PRÓXIMA VISITA</button>
-                <label>DÍA: <input type="text"></label>
-                <label>FECHA: <input type="date"></label>
-                <label>HORA: <input type="time"></label>
+            <div class="block">
+                <h3>HORA DE SERVICIO</h3>
+                <div class="next-visit">
+                    <button>PRÓXIMA VISITA</button>
+                    <label>DÍA: <input type="text"></label>
+                    <label>FECHA: <input type="date"></label>
+                    <label>HORA: <input type="time"></label>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cantidad de Dispositivo</th>
-                        <th>Cantidad de Consumo</th>
-                        <th>PLAGA SEÑALADA</th>
-                        <th>% DE PESTICIDA USADO</th>
-                        <th>CANTIDAD</th>
-                        <th>MÉTODO DE APLICACIÓN</th>
-                        <th>LUGAR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ext.: <input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="number"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="block">
+                <h3>CANTIDAD DE DISPOSITIVOS Y CONSUMO</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cantidad de Dispositivo</th>
+                            <th>Cantidad de Consumo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="block">
+                <h3>PLAGA SEÑALADA Y DETALLES</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PLAGA SEÑALADA</th>
+                            <th>% DE PESTICIDA USADO</th>
+                            <th>CANTIDAD</th>
+                            <th>MÉTODO DE APLICACIÓN</th>
+                            <th>LUGAR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section class="insects">
