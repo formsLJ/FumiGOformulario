@@ -34,38 +34,14 @@
             text-align: center;
         }
 
-        .header-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-        }
-
-        .header-info div {
-            width: 48%;
-        }
-
-        .header-info .logo {
-            width: 10%;
-            text-align: center;
-        }
-
-        .header-info img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .service-time, .insects, .rodents, .recommendations {
-            margin-top: 20px;
-        }
-
         .service-time {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
-        .service-time .block {
+        .block {
             width: 30%;
             background-color: #f0f0f0;
             padding: 10px;
@@ -74,10 +50,10 @@
             margin-bottom: 10px;
         }
 
-        .service-time .block h3 {
+        .block h3 {
             background-color: #003366;
             color: #fff;
-            padding: 8px;
+            padding: 5px;
             text-align: center;
             margin-bottom: 10px;
             font-size: 14px;
@@ -99,18 +75,12 @@
             font-size: 12px;
         }
 
-        .checkbox-group label {
-            display: block;
-            margin: 5px 0;
-        }
-
         textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
             width: 100%;
             padding: 5px;
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 12px;
         }
 
         button {
@@ -119,37 +89,19 @@
             border: none;
             padding: 8px 15px;
             cursor: pointer;
+            font-size: 12px;
         }
 
         button:hover {
             background-color: #00509E;
         }
 
-        footer {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .footer-info {
-            font-size: 0.9em;
-        }
-
-        .signatures div {
-            text-align: center;
-        }
-
         @media (max-width: 768px) {
-            .header-info {
+            .service-time {
                 flex-direction: column;
             }
 
-            .header-info div {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .service-time .block {
+            .block {
                 width: 100%;
             }
         }
@@ -170,17 +122,6 @@
     <div class="container">
         <header>
             <h1>REPORTE DE SERVICIO</h1>
-            <div class="header-info">
-                <div>
-                    <strong>NOMBRE DEL CLIENTE:</strong> <input type="text" required>
-                </div>
-                <div>
-                    <strong>FECHA DE SERVICIO:</strong> <input type="date" required>
-                </div>
-                <div class="logo">
-                    <img src="logo.png" alt="Logotipo de FumiGO">
-                </div>
-            </div>
         </header>
 
         <section class="service-time">
@@ -199,31 +140,31 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Descripción</th>
-                            <th>Cantidad de Dispositivo</th>
-                            <th>Cantidad de Consumo</th>
+                            <th>Dispositivo</th>
+                            <th>Cantidad</th>
+                            <th>Consumo</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Ext.</td>
-                            <td><input type="number" required></td>
-                            <td><input type="number" required></td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
                         </tr>
                         <tr>
                             <td>Int.</td>
-                            <td><input type="number" required></td>
-                            <td><input type="number" required></td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
                         </tr>
                         <tr>
                             <td>Uv.</td>
-                            <td><input type="number" required></td>
-                            <td><input type="number" required></td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
                         </tr>
                         <tr>
                             <td>Disp. Dañado</td>
-                            <td><input type="number" required></td>
-                            <td><input type="number" required></td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -243,73 +184,44 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" required></td>
-                            <td><input type="text" required></td>
-                            <td><input type="number" required></td>
-                            <td><input type="text" required></td>
-                            <td><input type="text" required></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
-
-        <section class="insects">
-            <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
-            <div class="checkbox-group">
-                <label><input type="checkbox"> Inspección en el establecimiento (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Termonebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aplicación de Feromona (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Aspersión (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-                <label><input type="checkbox"> Nebulización (Int.)</label>
-                <label><input type="checkbox"> (Ext.)</label>
-            </div>
-            <p>Otras aplicaciones:</p>
-            <textarea rows="3"></textarea>
-        </section>
-
-        <section class="rodents">
-            <h2>II - ROEDORES</h2>
-            <label><input type="checkbox"> Inspección y limpieza de trampas</label>
-            <div>
-                <p>Hallazgo de actividad de roedor:</p>
-                <label><input type="radio" name="roedor" required> SI</label>
-                <label><input type="radio" name="roedor"> NO</label>
-                <label>Trampas: <input type="text"></label>
-            </div>
-            <label><input type="checkbox"> Colocación de cebo preventivo</label>
-            <p>Otros procedimientos:</p>
-            <textarea rows="3"></textarea>
-        </section>
-
-        <section class="recommendations">
-            <h2>III - RECOMENDACIONES</h2>
-            <textarea rows="4" required></textarea>
-        </section>
-
-        <footer>
-            <div class="footer-info">
-                <p><strong>FUMIGO</strong> - LA EXCELENCIA EN EL CONTROL DE PLAGAS</p>
-                <p>RUC N°: 0012093630027M</p>
-                <p>TELÉFONOS: 7752 4441 / 8820 8016</p>
-                <p>DIRECCIÓN: COLONIA DEL PERIODISTA, CASA 216</p>
-                <p>FACEBOOK: FumiGO</p>
-            </div>
-            <div class="signatures">
-                <div>
-                    <p>__________________________</p>
-                    <p>FIRMA DEL CLIENTE / Encargado</p>
-                </div>
-                <div>
-                    <p>__________________________</p>
-                    <p>ESPECIALISTA DE SERVICIOS</p>
-                </div>
-            </div>
-        </footer>
     </div>
 </body>
 </html>
