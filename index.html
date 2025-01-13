@@ -154,12 +154,12 @@
             flex-wrap: wrap;
         }
 
+        .signatures div {
         .signature-container div {
             text-align: center;
             width: 45%;
             margin-bottom: 20px;
         }
-
         .signature-container canvas {
             max-width: 100%;
             height: auto;
@@ -219,6 +219,14 @@
             </div>
         </section>
 
+        <section class="service-time">
+            <div class="block">
+                <h3>HORA DE SERVICIO</h3>
+                <div class="next-visit">
+                    <button>PRÓXIMA VISITA</button>
+                    <label for="proxima-dia">DÍA: </label><input type="text" id="proxima-dia">
+                    <label for="proxima-fecha">FECHA: </label><input type="date" id="proxima-fecha">
+                    <label for="proxima-hora">HORA: </label><input type="time" id="proxima-hora">
         <!-- Formulario -->
         <section class="insects">
             <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
@@ -248,10 +256,42 @@
             <p>Otras aplicaciones:</p>
             <textarea name="otras-aplicaciones" rows="3" placeholder="Describa otras aplicaciones realizadas"></textarea>
         </section>
-
         <section class="rodents">
             <h2>II - ROEDORES</h2>
             <div class="block">
+                <h3>CANTIDAD DE DISPOSITIVOS Y CONSUMO</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dispositivo</th>
+                                <th>Cantidad</th>
+                                <th>Consumo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ext.</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>Int.</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>Uv.</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                            <tr>
+                                <td>Disp. Dañado</td>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 <label><input type="checkbox" name="inspeccion-trampas"> Inspección y limpieza de trampas</label>
             </div>
             <div class="block">
@@ -275,10 +315,31 @@
         <section class="recommendations">
             <h2>III. RECOMENDACIONES</h2>
             <div class="block">
+                <h3>PLAGA SEÑALADA Y DETALLES</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PLAGA SEÑALADA</th>
+                                <th>% DE PESTICIDA USADO</th>
+                                <th>CANTIDAD</th>
+                                <th>MÉTODO DE APLICACIÓN</th>
+                                <th>LUGAR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="number"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 <textarea rows="4" placeholder="Escriba las recomendaciones aquí..."></textarea>
             </div>
         </section>
-
         <!-- Firmas -->
         <section class="signatures">
             <h2>Firmas</h2>
@@ -298,75 +359,192 @@
             </div>
         </section>
 
+        <section class="insects">
+    <h2>I - INSECTOS RASTREROS / VOLADORES</h2>
+    
+    <!-- Inspección en el establecimiento -->
+    <div class="checkbox-group">
+        <div class="checkbox-column">
+            <h3>Inspección en el establecimiento</h3>
+            <label><input type="checkbox" name="inspeccion-establecimiento-int"> Int.</label>
+            <label><input type="checkbox" name="inspeccion-establecimiento-ext"> Ext.</label>
         <!-- Pie de página -->
         <div class="footer-info">
             <p>FumiGO® - Tu mejor opción en control de plagas</p>
         </div>
-
+        
+        <!-- Aplicación de Feromona -->
+        <div class="checkbox-column">
+            <h3>Aplicación de Feromona</h3>
+            <label><input type="checkbox" name="aplicacion-feromona-int"> Int.</label>
+            <label><input type="checkbox" name="aplicacion-feromona-ext"> Ext.</label>
+        </div>
+        
+        <!-- Aspersión -->
+        <div class="checkbox-column">
+            <h3>Aspersión</h3>
+            <label><input type="checkbox" name="aspersión-int"> Int.</label>
+            <label><input type="checkbox" name="aspersión-ext"> Ext.</label>
+        </div>
+        
+        <!-- Nebulización -->
+        <div class="checkbox-column">
+            <h3>Nebulización</h3>
+            <label><input type="checkbox" name="nebulizacion-int"> Int.</label>
+            <label><input type="checkbox" name="nebulizacion-ext"> Ext.</label>
+        </div>
     </div>
 
+    <!-- Otras aplicaciones -->
+    <p>Otras aplicaciones:</p>
+    <textarea name="otras-aplicaciones" rows="3" placeholder="Describa otras aplicaciones realizadas"></textarea>
+</section>
+        <section class="rodents">
+    <h2>II - ROEDORES</h2>
+    
+    <!-- Inspección y limpieza de trampas -->
+    <div class="block">
+        <label><input type="checkbox" name="inspeccion-trampas"> Inspección y limpieza de trampas</label>
+    </div>
+    
+    <!-- Hallazgo de actividad de roedor -->
+    <div class="block">
+        <p>Hallazgo de actividad de roedor:</p>
+        <label><input type="radio" name="roedor-actividad" value="si" required> Sí</label>
+        <label><input type="radio" name="roedor-actividad" value="no"> No</label>
+        <div class="trampas-detalle" style="display: none;">
+            <label for="trampas">Trampas encontradas:</label>
+            <input type="number" id="trampas" name="trampas" placeholder="Cantidad de trampas encontradas">
+        </div>
+    </div>
+    
+    <!-- Colocación de cebo preventivo -->
+    <div class="block">
+        <label><input type="checkbox" name="colocacion-cebo"> Colocación de cebo preventivo</label>
+    </div>
+    
+    <!-- Otros procedimientos -->
+    <div class="block">
+        <p>Otros procedimientos:</p>
+        <textarea name="otros-procedimientos" placeholder="Describa otros procedimientos aplicados"></textarea>
+    </div>
+     </section>
+
+    <section class="recommendations">
+    <h2>III. RECOMENDACIONES</h2>
+    <div class="block">
+        <textarea rows="4" placeholder="Escriba las recomendaciones aquí..."></textarea>
+    </div>
+</section>
+<script>
+    // Mostrar campo de trampas si la actividad de roedor es detectada
+    document.querySelectorAll('input[name="roedor-actividad"]').forEach((radio) => {
+        radio.addEventListener('change', function() {
+            const trampasDetalle = document.querySelector('.trampas-detalle');
+            if (this.value === 'si') {
+                trampasDetalle.style.display = 'block';
+            } else {
+                trampasDetalle.style.display = 'none';
     <script>
         // Función para inicializar el lienzo y permitir dibujar
         function initCanvas(canvasId) {
             var canvas = document.getElementById(canvasId);
             var ctx = canvas.getContext("2d");
             var painting = false;
-
-            // Inicia el dibujo cuando se hace clic en el lienzo (PC)
+            // Inicia el dibujo cuando se hace clic en el lienzo
             function startPosition(e) {
                 painting = true;
                 draw(e);
             }
+        });
+    });
+</script>
 
-            // Inicia el dibujo cuando se toca el lienzo (móvil)
-            function startTouchPosition(e) {
-                e.preventDefault(); // Previene el comportamiento por defecto de los eventos de toque
-                painting = true;
-                drawTouch(e);
-            }
-
-            // Detiene el dibujo cuando se deja de hacer clic o se suelta el toque
+        <section class="signatures">
+    <h2>Firmas</h2>
+    <div class="signature-container">
+        <!-- Firma del Cliente -->
+        <div>
+            <label for="firmaCliente">Firma del Cliente:</label>
+            <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+            <br>
+            <button onclick="clearCanvas('firmaCliente')">Borrar Firma Cliente</button>
+        </div>
+        
+        <!-- Firma del Especialista -->
+        <div>
+            <label for="firmaEspecialista">Firma del Especialista:</label>
+            <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+            <br>
+            <button onclick="clearCanvas('firmaEspecialista')">Borrar Firma Especialista</button>
+        </div>
+    </div>
+</section>
+<script>
+    // Función para inicializar el lienzo y permitir dibujar
+    function initCanvas(canvasId) {
+        var canvas = document.getElementById(canvasId);
+        var ctx = canvas.getContext("2d");
+        var painting = false;
+        // Inicia el dibujo cuando se hace clic en el lienzo
+        function startPosition(e) {
+            painting = true;
+            draw(e);
+        }
+            // Detiene el dibujo cuando se deja de hacer clic
             function endPosition() {
                 painting = false;
-                ctx.beginPath();
+                ctx.beginPath(); // Reinicia el trazo para no continuar de donde se dejó
             }
 
-            // Dibuja en el lienzo cuando el mouse se mueve (PC)
+        // Detiene el dibujo cuando se deja de hacer clic
+        function endPosition() {
+            painting = false;
+            ctx.beginPath(); // Reinicia el trazo para no continuar de donde se dejó
+        }
+            // Dibuja en el lienzo mientras se mueve el ratón
             function draw(e) {
                 if (!painting) return;
-                ctx.lineWidth = 2;
-                ctx.lineCap = "round";
-                ctx.strokeStyle = "#000";
-
-                ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-                ctx.stroke();
-                ctx.beginPath();
-                ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                ctx.lineWidth = 2;  // Grosor de la línea de la firma
+                ctx.lineCap = "round"; // Redondea el final de las líneas
+                ctx.strokeStyle = "#000"; // Color de la firma
+                ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);  // Calcula la posición relativa
+                ctx.stroke();  // Dibuja la línea
+                ctx.beginPath(); // Reinicia el trazo
+                ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop); // Mantiene la posición del ratón
             }
 
-            // Dibuja en el lienzo cuando el dedo se mueve (móvil)
-            function drawTouch(e) {
-                if (!painting) return;
-                var touch = e.touches[0]; // Obtiene la posición del toque
-                ctx.lineWidth = 2;
-                ctx.lineCap = "round";
-                ctx.strokeStyle = "#000";
-
-                ctx.lineTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
-                ctx.stroke();
-                ctx.beginPath();
-                ctx.moveTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
-            }
-
-            // Agrega los eventos de mouse y toque para dibujar
+        // Dibuja en el lienzo mientras se mueve el ratón
+        function draw(e) {
+            if (!painting) return;
+            ctx.lineWidth = 2;  // Grosor de la línea de la firma
+            ctx.lineCap = "round"; // Redondea el final de las líneas
+            ctx.strokeStyle = "#000"; // Color de la firma
+            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);  // Calcula la posición relativa
+            ctx.stroke();  // Dibuja la línea
+            ctx.beginPath(); // Reinicia el trazo
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop); // Mantiene la posición del ratón
+            // Agrega los eventos de mouse para dibujar
             canvas.addEventListener("mousedown", startPosition);
             canvas.addEventListener("mouseup", endPosition);
             canvas.addEventListener("mousemove", draw);
-            canvas.addEventListener("touchstart", startTouchPosition);
-            canvas.addEventListener("touchend", endPosition);
-            canvas.addEventListener("touchmove", drawTouch);
         }
 
+        // Agrega los eventos de mouse para dibujar
+        canvas.addEventListener("mousedown", startPosition);
+        canvas.addEventListener("mouseup", endPosition);
+        canvas.addEventListener("mousemove", draw);
+    }
+    // Función para borrar el contenido del lienzo
+    function clearCanvas(canvasId) {
+        var canvas = document.getElementById(canvasId);
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);  // Limpia todo el contenido del lienzo
+    }
+    // Inicializa los dos lienzos (para las firmas del cliente y especialista)
+    initCanvas("firmaCliente");
+    initCanvas("firmaEspecialista");
+</script>
         // Función para borrar el contenido del lienzo
         function clearCanvas(canvasId) {
             var canvas = document.getElementById(canvasId);
@@ -375,6 +553,10 @@
             ctx.beginPath(); // Inicia un nuevo trazo en el lienzo limpio
         }
 
+        <section class="footer-info">
+            <p>© 2025 FumiGO. Todos los derechos reservados.</p>
+        </section>
+    </div>
         // Inicializa los dos lienzos (para las firmas del cliente y especialista)
         initCanvas("firmaCliente");
         initCanvas("firmaEspecialista");
