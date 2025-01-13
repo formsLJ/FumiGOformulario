@@ -379,15 +379,76 @@
 </script>
 
         <section class="signatures">
-            <div>
-                <p><strong>Firma del cliente</strong></p>
-                <p>(Firma de aceptación)</p>
-            </div>
-            <div>
-                <p><strong>Firma del técnico</strong></p>
-                <p>(Firma de realización del servicio)</p>
-            </div>
-        </section>
+    <h2>Firmas</h2>
+    <div class="signature-container">
+        <!-- Firma del Cliente -->
+        <div>
+            <label for="firmaCliente">Firma del Cliente:</label>
+            <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+            <br>
+            <button onclick="clearCanvas('firmaCliente')">Borrar Firma Cliente</button>
+        </div>
+        
+        <!-- Firma del Especialista -->
+        <div>
+            <label for="firmaEspecialista">Firma del Especialista:</label>
+            <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+            <br>
+            <button onclick="clearCanvas('firmaEspecialista')">Borrar Firma Especialista</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Función para inicializar el lienzo y permitir dibujar
+    function initCanvas(canvasId) {
+        var canvas = document.getElementById(canvasId);
+        var ctx = canvas.getContext("2d");
+        var painting = false;
+
+        // Inicia el dibujo cuando se hace clic en el lienzo
+        function startPosition(e) {
+            painting = true;
+            draw(e);
+        }
+
+        // Detiene el dibujo cuando se deja de hacer clic
+        function endPosition() {
+            painting = false;
+            ctx.beginPath(); // Reinicia el trazo para no continuar de donde se dejó
+        }
+
+        // Dibuja en el lienzo mientras se mueve el ratón
+        function draw(e) {
+            if (!painting) return;
+            ctx.lineWidth = 2;  // Grosor de la línea de la firma
+            ctx.lineCap = "round"; // Redondea el final de las líneas
+            ctx.strokeStyle = "#000"; // Color de la firma
+
+            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);  // Calcula la posición relativa
+            ctx.stroke();  // Dibuja la línea
+            ctx.beginPath(); // Reinicia el trazo
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop); // Mantiene la posición del ratón
+        }
+
+        // Agrega los eventos de mouse para dibujar
+        canvas.addEventListener("mousedown", startPosition);
+        canvas.addEventListener("mouseup", endPosition);
+        canvas.addEventListener("mousemove", draw);
+    }
+
+    // Función para borrar el contenido del lienzo
+    function clearCanvas(canvasId) {
+        var canvas = document.getElementById(canvasId);
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);  // Limpia todo el contenido del lienzo
+    }
+
+    // Inicializa los dos lienzos (para las firmas del cliente y especialista)
+    initCanvas("firmaCliente");
+    initCanvas("firmaEspecialista");
+</script>
+
 
         <section class="footer-info">
             <p>© 2025 FumiGO. Todos los derechos reservados.</p>
