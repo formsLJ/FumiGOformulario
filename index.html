@@ -431,6 +431,36 @@
             <p>© 2025 FumiGO. Todos los derechos reservados.</p>
         </section>
     </div>
+        <script>
+        document.getElementById("downloadBtn").addEventListener("click", function() {
+            // Obtener los valores del formulario
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Comprobar si los campos no están vacíos
+            if (name === "" || email === "" || message === "") {
+                alert("Por favor, llena todos los campos.");
+                return;
+            }
+
+            // Crear el objeto jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Agregar contenido al PDF
+            doc.text("Formulario de contacto", 20, 20);
+            doc.text(`Nombre: ${name}`, 20, 30);
+            doc.text(`Correo electrónico: ${email}`, 20, 40);
+            doc.text(`Mensaje: ${message}`, 20, 50);
+
+            // Descargar el PDF
+            doc.save("formulario.pdf");
+
+            // Después de generar el PDF, enviar el formulario
+            document.getElementById("myForm").submit();
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <button type="button" id="downloadBtn">Generar PDF y Enviar</button>
     </form>
