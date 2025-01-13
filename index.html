@@ -215,7 +215,7 @@
                 <input type="date" id="fecha-servicio" required>
             </div>
             <div class="logo">
-                <img src="logos fumiGO OUT.png" alt="logo">
+                <img src="" alt="">
             </div>
         </section>
 
@@ -456,8 +456,10 @@
             doc.save("reporte_servicio.pdf");
 
             // Después de generar el PDF, enviar el formulario
+             setTimeout(function() {
             document.getElementById("myForm").submit();
-        });
+        }, 1000); // Espera 1 segundo para asegurar que el PDF se haya descargado antes de enviar el formulario
+    });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <button type="button" id="downloadBtn">Generar PDF y Enviar</button>
