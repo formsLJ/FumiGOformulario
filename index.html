@@ -71,21 +71,21 @@
         }
 
         table, th, td {
-    border: 1px solid #ccc;
-    padding: 5px;  /* Reduce el padding */
-    font-size: 10px;  /* Hace la fuente más pequeña */
-    text-align: center;
-}
+            border: 1px solid #ccc;
+            padding: 5px;  /* Reduce el padding */
+            font-size: 10px;  /* Hace la fuente más pequeña */
+            text-align: center;
+        }
 
-th, td {
-    width: 15%;  /* Asigna un ancho igual para cada columna */
-}
+        th, td {
+            width: 15%;  /* Asigna un ancho igual para cada columna */
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
 
         textarea, input[type="text"], input[type="date"], input[type="number"], input[type="time"] {
             width: 100%;
@@ -124,10 +124,10 @@ table {
             }
 
             .logo img {
-    width: 100%;
-    max-width: 100px;  /* Ajusta este valor según el tamaño que desees */
-    height: auto;
-}
+                width: 100%;
+                max-width: 100px;  /* Ajusta este valor según el tamaño que desees */
+                height: auto;
+            }
         }
 
         @media print {
@@ -221,56 +221,56 @@ table {
             </div>
 
             <div class="block">
-    <h3>PLAGA SEÑALADA Y DETALLES</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>PLAGA SEÑALADA</th>
-                <th>% DE PESTICIDA USADO</th>
-                <th>CANTIDAD</th>
-                <th>MÉTODO DE APLICACIÓN</th>
-                <th>LUGAR</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="number"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="number"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="number"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="number"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="number"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                <h3>PLAGA SEÑALADA Y DETALLES</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PLAGA SEÑALADA</th>
+                            <th>% DE PESTICIDA USADO</th>
+                            <th>CANTIDAD</th>
+                            <th>MÉTODO DE APLICACIÓN</th>
+                            <th>LUGAR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section class="insects">
@@ -319,18 +319,23 @@ table {
                 <p>FACEBOOK: FumiGO</p>
             </div>
             <div class="signatures">
-    <div>
-        <p>__________________________</p>
-        <p>FIRMA DEL CLIENTE / Encargado</p>
-        <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
-    </div>
-    <div>
-        <p>__________________________</p>
-        <p>ESPECIALISTA DE SERVICIOS</p>
-        <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
-    </div>
-</div>
+                <div>
+                    <p>__________________________</p>
+                    <p>FIRMA DEL CLIENTE / Encargado</p>
+                    <canvas id="firmaCliente" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+                    <button onclick="clearCanvas('firmaCliente')">Borrar Firma Cliente</button>
+                    <button onclick="saveSignature('firmaCliente')">Guardar Firma Cliente</button>
+                </div>
+                <div>
+                    <p>__________________________</p>
+                    <p>ESPECIALISTA DE SERVICIOS</p>
+                    <canvas id="firmaEspecialista" width="300" height="100" style="border: 1px solid #ccc;"></canvas>
+                    <button onclick="clearCanvas('firmaEspecialista')">Borrar Firma Especialista</button>
+                    <button onclick="saveSignature('firmaEspecialista')">Guardar Firma Especialista</button>
+                </div>
+            </div>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
