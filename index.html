@@ -455,7 +455,7 @@
       pdf.save(); // Guardamos el PDF localmente
 
       // Convertir PDF a base64 para enviarlo
-      const pdfBase64 = pdf.output('datauristring');
+      const pdfBase64 = pdf.output('base64');
 
       // Enviar el PDF por correo usando Google Apps Script
       sendPdfByEmail(pdfBase64);
