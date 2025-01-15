@@ -439,29 +439,40 @@
 </div>
         </form>
        <script>
-  document.getElementById('sendButton').addEventListener('click', function() {
-  var pdfBase64 = "<tu_pdf_base64>"; // Asegúrate de tener la cadena base64 del PDF
-
-  fetch("https://script.google.com/macros/s/AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg/exec", {
-    method: "POST",
-    body: JSON.stringify({
-      pdf: pdfBase64,
-      recipient: "leonelalvarez.info@gmail.com", // Cambia por el correo de destino
-      subject: "Reporte de Servicio - FumiGO",
-      body: "Adjunto el reporte de servicio en formato PDF."
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    alert("Correo enviado correctamente");
-  })
-  .catch(error => {
-    alert("Error al enviar el correo: " + error.message);
-  });
+  document.getElementById('downloadBtn').addEventListener('click', function() {
+    // Usando html2pdf para generar el PDF
+    const element = document.getElementById('formContent');
+    html2pdf(element, {
+        filename: 'reporte_servicio.pdf',
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        callback: function (pdf) {
+            // Convertir PDF a base64
+            const pdfBase64 = pdf.output('datauristring');
+            
+            // Enviar el PDF a través del Google Apps Script
+            fetch("https://script.google.com/macros/s/AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg/exec", {
+                method: "POST",
+                body: JSON.stringify({
+                    pdf: pdfBase64,
+                    recipient: "leonelalvarez.info@gmail.com", // Cambia por el correo de destino
+                    subject: "Reporte de Servicio - FumiGO",
+                    body: "Adjunto el reporte de servicio en formato PDF."
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Correo enviado correctamente");
+            })
+            .catch(error => {
+                alert("Error al enviar el correo: " + error.message);
+            });
+        }
+    });
 });
+
   function sendPdfByEmail(pdfBase64) {
     // Llamar a tu Google Apps Script para enviar el correo
     fetch("https://script.google.com/macros/s/AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg/exec", {
@@ -480,11 +491,7 @@
 .then(data => alert("Correo enviado correctamente"))
 .catch(error => alert("Error al enviar el correo: " + error.message));
 </script>
-
-</script>
-
-    </script>
-
+    
     <script>
     // Mostrar campo de trampas si la actividad de roedor es detectada
     document.querySelectorAll('input[name="roedor-actividad"]').forEach((radio) => {
