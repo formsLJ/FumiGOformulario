@@ -456,28 +456,28 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
 
             // Enviar el PDF a través del Google Apps Script
             fetch("https://script.google.com/macros/s/AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg/exec", {
-                method: "POST",
-                body: JSON.stringify({
-                    pdf: pdfBase64,
-                    recipient: "leonelalvarez.info@gmail.com", // Cambia por el correo de destino
-                    subject: "Reporte de Servicio - FumiGO",
-                    body: "Adjunto el reporte de servicio en formato PDF."
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    alert("Correo enviado correctamente");
-                } else {
-                    alert("Error al enviar el correo: " + data.message);
-                }
-            })
-            .catch(error => {
-                alert("Error al enviar el correo: " + error.message);
-            });
+    method: "POST",
+    body: JSON.stringify({
+        pdf: pdfBase64,
+        recipient: "leonelalvarez.info@gmail.com", // Cambia por el correo de destino
+        subject: "Reporte de Servicio - FumiGO",
+        body: "Adjunto el reporte de servicio en formato PDF."
+    }),
+    headers: {
+        'Content-Type': 'application/json' // Asegúrate de que se esté enviando como JSON
+    }
+})
+.then(response => response.json())
+.then(data => {
+    if (data.status === "success") {
+        alert("Correo enviado correctamente");
+    } else {
+        alert("Error al enviar el correo: " + data.message);
+    }
+})
+.catch(error => {
+    alert("Error al enviar el correo: " + error.message);
+});
         }
     });
 });
