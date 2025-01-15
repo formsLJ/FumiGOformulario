@@ -439,34 +439,26 @@
 </div>
         </form>
          <script>
-       document.getElementById("downloadBtn").addEventListener("click", function () {
+       document.getElementById("downloadBtn").addEventListener("click", async function () {
     const element = document.getElementById("formContent");
+    const email = "leonelalvarez.info@gmail.com"; // Reemplaza con el correo deseado.
 
-    // Ocultar contenido no crítico en móviles
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll('.no-mobile').forEach(el => el.style.display = 'none');
+    // Convertir HTML a string
+    const htmlContent = element.outerHTML;
+
+    // Enviar datos al servidor
+    try {
+        const response = await fetch("AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ htmlContent, email }),
+        });
+
+        const result = await response.text();
+        alert(result); // Muestra el resultado (opcional)
+    } catch (error) {
+        alert("Error al enviar el formulario: " + error.message);
     }
-
-    const options = {
-        margin: [10, 10, 10, 10],
-        filename: 'reporte_servicio.pdf',
-        html2canvas: {
-            scale: 1.5,
-            scrollX: 0,
-            scrollY: 0,
-            useCORS: true,
-        },
-        jsPDF: {
-            unit: 'mm',
-            format: 'a4',
-            orientation: 'portrait',
-        },
-    };
-
-    html2pdf().set(options).from(element).save();
-
-    // Restaurar contenido oculto
-    document.querySelectorAll('.no-mobile').forEach(el => el.style.display = '');
 });
 
     </script>
