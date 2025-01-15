@@ -439,6 +439,7 @@
 </div>
         </form>
        <script>
+  <script>
   document.getElementById('downloadBtn').addEventListener('click', function() {
     // Usando html2pdf para generar el PDF
     const element = document.getElementById('formContent');
@@ -464,7 +465,11 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert("Correo enviado correctamente");
+                if (data.status === "success") {
+                    alert("Correo enviado correctamente");
+                } else {
+                    alert("Error al enviar el correo: " + data.message);
+                }
             })
             .catch(error => {
                 alert("Error al enviar el correo: " + error.message);
@@ -472,6 +477,8 @@
         }
     });
 });
+</script>
+
 </script>
 
     
