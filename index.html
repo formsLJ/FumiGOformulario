@@ -439,28 +439,27 @@
 </div>
         </form>
        <script>
-  document.querySelector("#downloadBtn").addEventListener("click", function () {
-  console.log("Botón clickeado, iniciando generación del PDF...");
-  // Crear PDF con html2pdf.js
-  const options = {
-    margin: 1,
-    filename: 'reporte_servicio.pdf',
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-  };
+  document.getElementById('sendButton').addEventListener('click', function() {
+  var pdfBase64 = "<tu_pdf_base64>"; // Asegúrate de tener la cadena base64 del PDF
 
-  const content = document.querySelector("#formContent");
-  html2pdf().from(content).set(options).toPdf().get('pdf').then(function (pdf) {
-    console.log("PDF generado correctamente");
-    // Una vez generado el PDF, enviarlo por correo
-    pdf.save(); // Guardamos el PDF localmente
-
-    // Convertir PDF a base64 para enviarlo
-    const pdfBase64 = pdf.output('base64');
-    console.log("PDF en base64 preparado");
-
-    // Enviar el PDF por correo usando Google Apps Script
-    sendPdfByEmail(pdfBase64);
+  fetch("https://script.google.com/macros/s/AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      pdf: pdfBase64,
+      recipient: "leonelalvarez.info@gmail.com", // Cambia por el correo de destino
+      subject: "Reporte de Servicio - FumiGO",
+      body: "Adjunto el reporte de servicio en formato PDF."
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert("Correo enviado correctamente");
+  })
+  .catch(error => {
+    alert("Error al enviar el correo: " + error.message);
   });
 });
   function sendPdfByEmail(pdfBase64) {
