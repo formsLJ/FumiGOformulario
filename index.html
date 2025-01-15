@@ -495,15 +495,15 @@
     <script>
     // Mostrar campo de trampas si la actividad de roedor es detectada
     document.querySelectorAll('input[name="roedor-actividad"]').forEach((radio) => {
-        radio.addEventListener('change', function() {
-            const trampasDetalle = document.querySelector('.trampas-detalle');
-            if (this.value === 'si') {
-                trampasDetalle.style.display = 'block';
-            } else {
-                trampasDetalle.style.display = 'none';
-            }
-        });
+    radio.addEventListener('change', function() {
+        const trampasDetalle = document.querySelector('.trampas-detalle');
+        if (this.value === 'si') {
+            trampasDetalle.style.display = 'block';
+        } else {
+            trampasDetalle.style.display = 'none';
+        }
     });
+});
 </script>
 
 
