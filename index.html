@@ -457,15 +457,15 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
             // Enviar el PDF a través del Google Apps Script
             fetch("https://script.google.com/macros/s/AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg/exec", {
     method: "POST",
+    headers: {
+        'Content-Type': 'application/json' // Asegúrate de enviar los datos como JSON
+    },
     body: JSON.stringify({
-        pdf: pdfBase64,
-        recipient: "leonelalvarez.info@gmail.com", // Cambia por el correo de destino
+        pdf: pdfBase64, // Aquí pones el contenido base64 del PDF
+        recipient: "leonelalvarez.info@gmail.com",
         subject: "Reporte de Servicio - FumiGO",
         body: "Adjunto el reporte de servicio en formato PDF."
-    }),
-    headers: {
-        'Content-Type': 'application/json' // Asegúrate de que se esté enviando como JSON
-    }
+    })
 })
 .then(response => response.json())
 .then(data => {
