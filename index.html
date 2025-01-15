@@ -438,30 +438,31 @@
     </div>
 </div>
         </form>
-         <script>
        <script>
   document.querySelector("#downloadBtn").addEventListener("click", function () {
-    // Crear PDF con html2pdf.js
-    const options = {
-      margin: 1,
-      filename: 'reporte_servicio.pdf',
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
+  console.log("Botón clickeado, iniciando generación del PDF...");
+  // Crear PDF con html2pdf.js
+  const options = {
+    margin: 1,
+    filename: 'reporte_servicio.pdf',
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
 
-    const content = document.querySelector("#formContent");
-    html2pdf().from(content).set(options).toPdf().get('pdf').then(function (pdf) {
-      // Una vez generado el PDF, enviarlo por correo
-      pdf.save(); // Guardamos el PDF localmente
+  const content = document.querySelector("#formContent");
+  html2pdf().from(content).set(options).toPdf().get('pdf').then(function (pdf) {
+    console.log("PDF generado correctamente");
+    // Una vez generado el PDF, enviarlo por correo
+    pdf.save(); // Guardamos el PDF localmente
 
-      // Convertir PDF a base64 para enviarlo
-      const pdfBase64 = pdf.output('base64');
+    // Convertir PDF a base64 para enviarlo
+    const pdfBase64 = pdf.output('base64');
+    console.log("PDF en base64 preparado");
 
-      // Enviar el PDF por correo usando Google Apps Script
-      sendPdfByEmail(pdfBase64);
-    });
+    // Enviar el PDF por correo usando Google Apps Script
+    sendPdfByEmail(pdfBase64);
   });
-
+});
   function sendPdfByEmail(pdfBase64) {
     // Llamar a tu Google Apps Script para enviar el correo
     fetch("https://script.google.com/macros/s/1fWubWS3EUG3Str8y-KGRaYFUBJf3h4vR1aufDo_AzLh8wIVnjshGq8R3/exec", {
