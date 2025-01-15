@@ -439,17 +439,21 @@
 </div>
         </form>
        <script>
-  <script>
-  document.getElementById('downloadBtn').addEventListener('click', function() {
-    // Usando html2pdf para generar el PDF
+document.getElementById('downloadBtn').addEventListener('click', function() {
     const element = document.getElementById('formContent');
+    
+    if (!element) {
+        alert('No se encontró el contenido para generar el PDF');
+        return;
+    }
+
     html2pdf(element, {
         filename: 'reporte_servicio.pdf',
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
         callback: function (pdf) {
             // Convertir PDF a base64
             const pdfBase64 = pdf.output('datauristring');
-            
+
             // Enviar el PDF a través del Google Apps Script
             fetch("https://script.google.com/macros/s/AKfycbzQTOPp7WWxxXZA0_sqEPlT13VPnGmHjVPeyL2grHR-rgaPKzyjUJjrqcTX98hFycO3Vg/exec", {
                 method: "POST",
